@@ -23,6 +23,18 @@
    Base & Layout
    ========================================================================== */
 
+body {
+  background-color: var(--color-morito-bg-warm);
+}
+
+/* Sections that need white/cream background to stand out */
+.slideshow,
+.shopify-section--header,
+.product,
+.cart {
+  background-color: transparent;
+}
+
 .section + .section {
   margin-top: 0;
 }
@@ -591,12 +603,22 @@ a.button_learn_more.button.button--secondary {
    Footer
    ========================================================================== */
 
+.footer {
+  background-color: var(--color-morito-green);
+  color: var(--color-morito-cream);
+}
+
+.footer .footer__content-top {
+  padding-top: 4rem;
+  padding-bottom: 3rem;
+}
+
 .footer-block__heading {
   font-size: 20px;
   font-weight: bold;
   letter-spacing: 1px;
   line-height: 31px;
-  color: var(--color-morito-green);
+  color: var(--color-morito-gold);
   font-family: Montserrat Thin;
 }
 
@@ -605,11 +627,13 @@ a.button_learn_more.button.button--secondary {
   letter-spacing: 2px;
   line-height: 2em;
   font-family: brandon-grotesque, sans-serif;
+  color: rgba(255, 252, 249, 0.85);
 }
 
 .footer-block__details-content .list-menu__item--link:hover,
 .copyright__content a:hover {
   text-decoration: none;
+  color: var(--color-morito-gold);
 }
 
 .footer-block.grid__item .list-social {
@@ -619,6 +643,24 @@ a.button_learn_more.button.button--secondary {
 .list-social__link {
   padding: 0;
   padding-right: 15px;
+}
+
+/* Footer social icon images on dark bg */
+.footer .list-social__link img {
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+@media (hover: hover) {
+  .footer .list-social__link:hover img {
+    opacity: 1;
+  }
+}
+
+/* Footer "Follow us" heading override */
+.footer .footer__content-top h2.footer-block__heading {
+  color: var(--color-morito-gold);
 }
 
 /* ==========================================================================
