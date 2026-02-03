@@ -1732,3 +1732,334 @@ p.text-comp__icon {
     width: 95%;
   }
 }
+
+/* ==========================================================================
+   SPRINT 2 — Visual Experience & UX Improvements
+   ========================================================================== */
+
+/* ==========================================================================
+   Slideshow / Hero — Improved Transitions
+   ========================================================================== */
+
+.slideshow .slideshow__slide {
+  transition: opacity 0.8s ease-in-out;
+}
+
+.slideshow__media {
+  transition: transform 6s ease-out;
+}
+
+.slideshow__slide.is-active .slideshow__media {
+  transform: scale(1.03);
+}
+
+.slideshow__text.banner__box {
+  animation: fadeSlideUp 0.8s ease-out 0.3s both;
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   Navigation — Micro-interactions & Hover States
+   ========================================================================== */
+
+.header__menu-item span {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.header__menu-item span::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-morito-gold);
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.header__menu-item:hover span::after {
+  width: 100%;
+  left: 0;
+}
+
+.header__menu-item:hover span {
+  color: var(--color-morito-brown);
+}
+
+.header__icon {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.header__icon:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+/* Cart icon badge pulse */
+.cart-count-bubble {
+  animation: cartPulse 0.4s ease;
+}
+
+@keyframes cartPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* Mobile menu drawer links */
+a.menu-drawer__menu-item {
+  transition: padding-left 0.3s ease, color 0.3s ease;
+}
+
+a.menu-drawer__menu-item:hover {
+  padding-left: 1rem;
+  color: var(--color-morito-gold);
+}
+
+/* ==========================================================================
+   Footer — Dark Bottom Stripe & Improved Typography
+   ========================================================================== */
+
+.footer__content-bottom {
+  background-color: var(--color-morito-brown);
+  color: var(--color-morito-cream);
+  padding: 2.5rem 0;
+  margin-top: 0;
+  border-top: none;
+}
+
+.footer__content-bottom .copyright__content,
+.footer__content-bottom .copyright__content a {
+  color: rgba(255, 252, 249, 0.7);
+}
+
+.footer__content-bottom .copyright__content a:hover {
+  color: var(--color-morito-gold);
+  text-decoration: none;
+}
+
+.footer__content-bottom .footer__payment .list-payment__item {
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.footer__content-bottom .footer__payment .list-payment__item:hover {
+  opacity: 1;
+}
+
+/* Footer localization selectors on dark bg */
+.footer__content-bottom .footer__localization h2 {
+  color: rgba(255, 252, 249, 0.6);
+}
+
+.footer__content-bottom .localization-selector.link,
+.footer__content-bottom .disclosure__button {
+  color: var(--color-morito-cream);
+}
+
+/* Footer heading typography consistency */
+.footer-block__heading {
+  font-family: var(--font-heading-family);
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  color: var(--color-morito-green);
+  margin-bottom: 2rem;
+}
+
+.footer-block__details-content .list-menu__item--link {
+  font-family: var(--font-body-family);
+  font-size: 1.3rem;
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.footer-block__details-content .list-menu__item--link:hover {
+  color: var(--color-morito-gold);
+  padding-left: 0.5rem;
+}
+
+/* Social icons in footer */
+.footer .list-social__link {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.footer .list-social__link:hover {
+  transform: scale(1.15);
+  opacity: 0.8;
+}
+
+/* ==========================================================================
+   Product Cards — Enhanced Layout & Hover Effects
+   ========================================================================== */
+
+.card-wrapper {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-wrapper:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.card__media .media img {
+  transition: transform 0.6s ease;
+}
+
+.card-wrapper:hover .card__media .media img {
+  transform: scale(1.05);
+}
+
+.card__heading a {
+  transition: color 0.3s ease;
+}
+
+.card-wrapper:hover .card__heading a {
+  color: var(--color-morito-green);
+}
+
+.card__information {
+  padding-top: 1.2rem;
+}
+
+/* Quick add button enhancement */
+.quick-add__submit {
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.quick-add__submit:hover {
+  background-color: var(--color-morito-green);
+  color: var(--color-morito-cream);
+}
+
+.quick-add__submit:active {
+  transform: scale(0.97);
+}
+
+/* ==========================================================================
+   Product Page — Improved Tabs & CTA
+   ========================================================================== */
+
+/* Product tabs redesign */
+.product_descriprion_section .tab {
+  border: none;
+  border-bottom: 2px solid var(--color-morito-separator);
+  height: auto;
+  display: flex;
+  gap: 0;
+}
+
+.tab button {
+  font-family: var(--font-heading-family);
+  font-size: 1.4rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 1.4rem 2rem;
+  color: rgba(var(--color-base-text), 0.5);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: color 0.3s ease, border-color 0.3s ease;
+  background: none;
+  float: none;
+}
+
+.tab button:hover {
+  background-color: transparent;
+  color: var(--color-morito-brown);
+}
+
+.tab button.active {
+  background-color: transparent;
+  color: var(--color-morito-brown);
+  border-bottom-color: var(--color-morito-green);
+}
+
+.tabcontent {
+  border: none;
+  padding: 2rem 0;
+  border-top: none;
+}
+
+.tabcontent p {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  color: var(--color-morito-brown);
+}
+
+/* Main product CTA button */
+.product-form__submit {
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.product-form__submit:hover {
+  box-shadow: 0 4px 15px rgba(0, 58, 19, 0.3);
+}
+
+.product-form__submit:active {
+  transform: scale(0.98);
+}
+
+/* Product price styling */
+.product__info-container .price-item--regular {
+  font-family: var(--font-heading-family);
+  font-size: 2.4rem;
+  color: var(--color-morito-brown);
+}
+
+/* Product vendor tag */
+.product__text.caption-with-letter-spacing {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-morito-green);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Global — Smooth Scroll & Transitions
+   ========================================================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Button universal transitions */
+.button,
+.btn,
+.shopify-payment-button__button {
+  transition: all 0.3s ease;
+}
+
+/* Image lazy load fade-in */
+img[loading="lazy"] {
+  opacity: 0;
+  animation: imgFadeIn 0.5s ease forwards;
+}
+
+img.loaded,
+img[loading="lazy"][src] {
+  opacity: 1;
+}
+
+@keyframes imgFadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--color-morito-gold);
+  outline-offset: 2px;
+}
