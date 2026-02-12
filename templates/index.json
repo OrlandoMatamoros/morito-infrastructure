@@ -73,7 +73,11 @@
           }
         }
       },
-      "block_order": ["slide-1-sticks", "slide-2-minicups", "slide-3-corporate"],
+      "block_order": [
+        "slide-1-sticks",
+        "slide-2-minicups",
+        "slide-3-corporate"
+      ],
       "settings": {
         "layout": "full_bleed",
         "slide_height": "medium",
@@ -90,26 +94,34 @@
         "bs-card-coconut": {
           "type": "product_card",
           "settings": {
+            "product": "coconut",
             "image_file": "Coconut Vegan White Chocolate.jpeg"
           }
         },
         "bs-card-hazelnut": {
           "type": "product_card",
           "settings": {
+            "product": "hazelnut",
             "image_file": "Hazelnu Dark Chocolate.jpeg"
           }
         },
         "bs-card-peanut": {
           "type": "product_card",
           "settings": {
+            "product": "salted-peanut",
             "image_file": "Salted Peanut Dark chocolate.jpeg"
           }
         }
       },
-      "block_order": ["bs-card-coconut", "bs-card-hazelnut", "bs-card-peanut"],
+      "block_order": [
+        "bs-card-coconut",
+        "bs-card-hazelnut",
+        "bs-card-peanut"
+      ],
       "settings": {
         "title": "Best Sellers / Perfect Gifting",
         "subtitle": "Our most-loved chocolate sticks — handcrafted in Brooklyn.",
+        "collection": "",
         "show_view_all": false
       }
     },
@@ -133,7 +145,9 @@
           }
         }
       },
-      "block_order": ["166030431729745ef6-0"],
+      "block_order": [
+        "166030431729745ef6-0"
+      ],
       "settings": {
         "image": "shopify://shop_images/MORITOsticks_noback_1.png",
         "height": "small",
@@ -188,7 +202,11 @@
           }
         }
       },
-      "block_order": ["16606328764e668d23-0", "16606328764e668d23-1", "16606328764e668d23-2"],
+      "block_order": [
+        "16606328764e668d23-0",
+        "16606328764e668d23-1",
+        "16606328764e668d23-2"
+      ],
       "settings": {
         "title": "Customers reviews",
         "heading_size": "h1",
@@ -256,7 +274,12 @@
           }
         }
       },
-      "block_order": ["1660625540951e2c3f-0", "1660625540951e2c3f-1", "1660625540951e2c3f-2", "aa388ed1-065b-4736-9564-369705df4e18"],
+      "block_order": [
+        "1660625540951e2c3f-0",
+        "1660625540951e2c3f-1",
+        "1660625540951e2c3f-2",
+        "aa388ed1-065b-4736-9564-369705df4e18"
+      ],
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
@@ -302,7 +325,12 @@
           }
         }
       },
-      "block_order": ["d2fd22f2-90d3-42d1-9271-1a898c963898", "365158cf-7334-4fcc-9550-cc7b5b42d2e3", "23ab52d3-d359-4fd5-bcf1-8e62358b3136", "69fdf97b-447e-40d3-95d2-155c978bd46f"],
+      "block_order": [
+        "d2fd22f2-90d3-42d1-9271-1a898c963898",
+        "365158cf-7334-4fcc-9550-cc7b5b42d2e3",
+        "23ab52d3-d359-4fd5-bcf1-8e62358b3136",
+        "69fdf97b-447e-40d3-95d2-155c978bd46f"
+      ],
       "settings": {}
     },
     "1660303491c91474c0": {
@@ -311,11 +339,25 @@
         "42d5752e-f31c-4d0b-b230-c63e1b1ef812": {
           "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
           "settings": {
+            "title": "",
+            "title_color": "",
+            "title_size_v2": 0,
+            "alignment": "center",
+            "instafeed_margin_top": 0,
+            "instafeed_margin_bottom": 0,
+            "instafeed_margin_sides": 0,
+            "show_instagram_link": false,
+            "link_alignment": "left",
+            "link_color": "#000000",
+            "background_color": "",
+            "feed_id": "",
             "html_area": ""
           }
         }
       },
-      "block_order": ["42d5752e-f31c-4d0b-b230-c63e1b1ef812"],
+      "block_order": [
+        "42d5752e-f31c-4d0b-b230-c63e1b1ef812"
+      ],
       "settings": {
         "include_margins": true
       }
