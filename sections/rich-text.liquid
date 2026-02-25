@@ -51,7 +51,18 @@
   }
 
   /* ═══════════════════════════════════════════════════
-     MOBILE CAROUSEL - Horizontal scroll with snap
+     TABLET - 3 columns but tighter
+     ═══════════════════════════════════════════════════ */
+  @media screen and (min-width: 750px) and (max-width: 989px) {
+    .mission-video-grid {
+      gap: 16px;
+      max-width: 750px;
+      padding: 0 16px;
+    }
+  }
+
+  /* ═══════════════════════════════════════════════════
+     MOBILE - Horizontal scroll carousel with snap
      ═══════════════════════════════════════════════════ */
   @media screen and (max-width: 749px) {
     .mission-video-grid {
@@ -59,8 +70,8 @@
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
-      gap: 16px;
-      padding: 0 16px 20px;
+      gap: 12px;
+      padding: 0 20px 16px;
       margin: 20px 0 0;
       max-width: 100%;
       scrollbar-width: none;
@@ -72,8 +83,8 @@
     }
 
     .mission-video-wrapper {
-      flex: 0 0 75%;
-      min-width: 75%;
+      flex: 0 0 70%;
+      min-width: 70%;
       scroll-snap-align: center;
       border-radius: 10px;
     }
@@ -108,17 +119,11 @@
     }
   }
 
-  /* Tablet: 2-column layout */
-  @media screen and (min-width: 750px) and (max-width: 989px) {
-    .mission-video-grid {
-      grid-template-columns: repeat(2, 1fr);
-      max-width: 700px;
-    }
-
-    .mission-video-wrapper:last-child {
-      grid-column: span 2;
-      max-width: 50%;
-      margin: 0 auto;
+  /* Small phones */
+  @media screen and (max-width: 374px) {
+    .mission-video-wrapper {
+      flex: 0 0 80%;
+      min-width: 80%;
     }
   }
 
@@ -202,7 +207,7 @@
                 {%- endif -%}
                 {%- if block.settings.video_file_3 != blank -%}
                   <div class="mission-video-wrapper">
-                    <video class="mission-video" autoplay muted loop playsinline>
+                    <video class="mission-video mission-video--slow" autoplay muted loop playsinline>
                       <source src="{{ block.settings.video_file_3 | asset_url }}" type="video/mp4">
                     </video>
                   </div>
@@ -222,8 +227,17 @@
 </div>
 
 <script>
-  // Mobile video carousel scroll indicator
   document.addEventListener('DOMContentLoaded', function() {
+    // Slow down the right video (0.5x speed)
+    const slowVideos = document.querySelectorAll('.mission-video--slow');
+    slowVideos.forEach(function(video) {
+      video.playbackRate = 0.5;
+      video.addEventListener('play', function() {
+        this.playbackRate = 0.5;
+      });
+    });
+
+    // Mobile video carousel scroll indicator
     const videoGrid = document.querySelector('.mission-video-grid');
     const dots = document.querySelectorAll('.mission-scroll-dot');
 
@@ -233,7 +247,7 @@
         const itemWidth = videoGrid.querySelector('.mission-video-wrapper').offsetWidth + 16;
         const activeIndex = Math.round(scrollLeft / itemWidth);
 
-        dots.forEach((dot, index) => {
+        dots.forEach(function(dot, index) {
           dot.classList.toggle('active', index === activeIndex);
         });
       });
