@@ -3,7 +3,7 @@
 <style>
   /* ═══════════════════════════════════════════════════
      ANIMATED CHOCOLATE BORDER EFFECT
-     Subtle glowing border that travels around the image
+     Conic gradient that rotates around the full frame
      ═══════════════════════════════════════════════════ */
   .image-with-text__media--animated-border {
     position: relative;
@@ -17,18 +17,16 @@
     inset: -3px;
     border-radius: 14px;
     padding: 3px;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      transparent 25%,
-      #D68A59 45%,
-      #8B5A3C 50%,
-      #D68A59 55%,
-      transparent 75%,
-      transparent 100%
+    background: conic-gradient(
+      from var(--border-angle, 0deg),
+      #D68A59 0%,
+      #8B5A3C 25%,
+      #D68A59 50%,
+      transparent 60%,
+      transparent 90%,
+      #D68A59 100%
     );
-    background-size: 300% 100%;
-    animation: chocolateBorderFlow 4s linear infinite;
+    animation: rotateBorder 4s linear infinite;
     -webkit-mask:
       linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
@@ -43,30 +41,31 @@
     position: absolute;
     inset: -6px;
     border-radius: 16px;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      transparent 30%,
-      rgba(214, 138, 89, 0.3) 45%,
-      rgba(139, 90, 60, 0.4) 50%,
-      rgba(214, 138, 89, 0.3) 55%,
-      transparent 70%,
-      transparent 100%
+    background: conic-gradient(
+      from var(--border-angle, 0deg),
+      rgba(214, 138, 89, 0.4) 0%,
+      rgba(139, 90, 60, 0.3) 25%,
+      rgba(214, 138, 89, 0.4) 50%,
+      transparent 60%,
+      transparent 90%,
+      rgba(214, 138, 89, 0.4) 100%
     );
-    background-size: 300% 100%;
-    animation: chocolateBorderFlow 4s linear infinite;
+    animation: rotateBorder 4s linear infinite;
     filter: blur(8px);
     pointer-events: none;
     z-index: 0;
   }
 
-  @keyframes chocolateBorderFlow {
-    0% {
-      background-position: 100% 0;
+  @keyframes rotateBorder {
+    to {
+      --border-angle: 360deg;
     }
-    100% {
-      background-position: -100% 0;
-    }
+  }
+
+  @property --border-angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
   }
 
   .image-with-text__media--animated-border img {
@@ -99,8 +98,7 @@
     .image-with-text__media--animated-border::before,
     .image-with-text__media--animated-border::after {
       animation: none;
-      background: linear-gradient(90deg, #D68A59, #8B5A3C, #D68A59);
-      background-size: 100% 100%;
+      background: conic-gradient(#D68A59, #8B5A3C, #D68A59);
     }
   }
 </style>
