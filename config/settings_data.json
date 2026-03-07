@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
     "colors_solid_button_labels": "#fffcf9",
@@ -114,7 +123,6 @@
             "type": "announcement",
             "settings": {
               "text": "Crafted in Brooklyn. Shipped Nationwide. | Premium Plant-Based Chocolate | Free Shipping on orders over $65 | Corporate & bulk orders: info@moritochocolates.com",
-              "color_scheme": "background-2",
               "link": ""
             }
           }
@@ -576,7 +584,6 @@
               "type": "announcement",
               "settings": {
                 "text": "Welcome to our store",
-                "color_scheme": "accent-1",
                 "link": ""
               }
             }
