@@ -94,12 +94,11 @@
             <h2 class="banner__heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
               <span>{{ block.settings.heading | escape }}</span>
             </h2>
-     
+
           {%- when 'text' -%}
             <div class="banner__text {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
               <span>{{ block.settings.text | escape }}</span>
             </div>
-
 
           {%- when 'buttons' -%}
             <div class="banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}" {{ block.shopify_attributes }}>
@@ -113,10 +112,196 @@
         {%- endcase -%}
       {%- endfor -%}
     </div>
-
-    
   </div>
+
+  {%- comment -%} Corporate Marquee — glassmorphic logo ticker on lower third {%- endcomment -%}
+  {%- assign marquee_logos = section.blocks | where: "type", "marquee_logo" -%}
+  {%- if section.settings.show_marquee and marquee_logos.size > 0 -%}
+    <div class="corporate-marquee" aria-label="Trusted by leading organizations">
+      {%- if section.settings.marquee_heading != blank -%}
+        <p class="corporate-marquee__heading">{{ section.settings.marquee_heading | escape }}</p>
+      {%- endif -%}
+      <div class="corporate-marquee__track-wrapper">
+        <div class="corporate-marquee__track" style="--marquee-speed: {{ section.settings.marquee_speed | default: 35 }}s;">
+          {%- for block in marquee_logos -%}
+            <div class="corporate-marquee__item" {{ block.shopify_attributes }}>
+              {%- if block.settings.logo != blank -%}
+                <img
+                  src="{{ block.settings.logo | image_url: width: 300 }}"
+                  srcset="{{ block.settings.logo | image_url: width: 150 }} 1x, {{ block.settings.logo | image_url: width: 300 }} 2x"
+                  alt="{{ block.settings.logo.alt | default: block.settings.name | escape }}"
+                  width="{{ block.settings.logo.width }}"
+                  height="{{ block.settings.logo.height }}"
+                  loading="lazy"
+                >
+              {%- else -%}
+                <span class="corporate-marquee__name">{{ block.settings.name | escape }}</span>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+          {%- comment -%} Duplicate for seamless infinite scroll {%- endcomment -%}
+          {%- for block in marquee_logos -%}
+            <div class="corporate-marquee__item" aria-hidden="true">
+              {%- if block.settings.logo != blank -%}
+                <img
+                  src="{{ block.settings.logo | image_url: width: 300 }}"
+                  srcset="{{ block.settings.logo | image_url: width: 150 }} 1x, {{ block.settings.logo | image_url: width: 300 }} 2x"
+                  alt=""
+                  width="{{ block.settings.logo.width }}"
+                  height="{{ block.settings.logo.height }}"
+                  loading="lazy"
+                >
+              {%- else -%}
+                <span class="corporate-marquee__name">{{ block.settings.name | escape }}</span>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
 </div>
+
+<style>
+  /* ═══════════════════════════════════════════════════
+     CORPORATE MARQUEE — Glassmorphic logo strip
+     Positioned in the lower third of image-banner
+     ═══════════════════════════════════════════════════ */
+  .corporate-marquee {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    background: rgba(249, 245, 240, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 18px 0;
+    overflow: hidden;
+  }
+
+  /* Ensure parent banner is positioned for absolute child */
+  .banner:has(.corporate-marquee) {
+    position: relative;
+  }
+
+  .corporate-marquee__heading {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #332520;
+    opacity: 0.6;
+    margin: 0 0 12px 0;
+    font-weight: 600;
+  }
+
+  .corporate-marquee__track-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  }
+
+  .corporate-marquee__track {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    width: max-content;
+    animation: corporateMarqueeScroll var(--marquee-speed, 35s) linear infinite;
+  }
+
+  @keyframes corporateMarqueeScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .corporate-marquee__item {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .corporate-marquee__item img {
+    width: auto;
+    height: 32px;
+    max-height: 32px;
+    object-fit: contain;
+    filter: brightness(0) saturate(100%) invert(13%) sepia(18%) saturate(1042%) hue-rotate(324deg) brightness(96%) contrast(90%);
+    transition: filter 0.3s ease;
+  }
+
+  .corporate-marquee__name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #332520;
+    white-space: nowrap;
+    padding: 0 0.5rem;
+  }
+
+  @media (hover: hover) {
+    .corporate-marquee__track:hover {
+      animation-play-state: paused;
+    }
+
+    .corporate-marquee__item img:hover {
+      filter: none;
+    }
+  }
+
+  /* Mobile adjustments */
+  @media screen and (max-width: 749px) {
+    .corporate-marquee {
+      padding: 14px 0;
+    }
+
+    .corporate-marquee__heading {
+      font-size: 0.65rem;
+      margin-bottom: 8px;
+    }
+
+    .corporate-marquee__track {
+      gap: 2.5rem;
+    }
+
+    .corporate-marquee__item img {
+      height: 24px;
+      max-height: 24px;
+    }
+
+    .corporate-marquee__name {
+      font-size: 0.8rem;
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .corporate-marquee__track {
+      animation: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: auto;
+      gap: 2rem 3rem;
+      padding: 0 2rem;
+    }
+
+    .corporate-marquee__item[aria-hidden="true"] {
+      display: none;
+    }
+
+    .corporate-marquee__track-wrapper {
+      -webkit-mask-image: none;
+      mask-image: none;
+    }
+  }
+</style>
 
 {% schema %}
 {
@@ -307,6 +492,33 @@
       "id": "show_text_below",
       "default": true,
       "label": "t:sections.image-banner.settings.show_text_below.label"
+    },
+    {
+      "type": "header",
+      "content": "Corporate Marquee"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_marquee",
+      "default": false,
+      "label": "Show Corporate Logo Marquee",
+      "info": "Displays a glassmorphic logo ticker strip on the lower third of the banner image."
+    },
+    {
+      "type": "text",
+      "id": "marquee_heading",
+      "label": "Marquee Heading",
+      "default": "Trusted by"
+    },
+    {
+      "type": "range",
+      "id": "marquee_speed",
+      "min": 15,
+      "max": 60,
+      "step": 5,
+      "unit": "s",
+      "label": "Marquee scroll speed",
+      "default": 35
     }
   ],
   "blocks": [
@@ -416,6 +628,24 @@
           "id": "button_style_secondary_2",
           "default": false,
           "label": "t:sections.image-banner.blocks.buttons.settings.button_style_secondary_2.label"
+        }
+      ]
+    },
+    {
+      "type": "marquee_logo",
+      "name": "Marquee Logo",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Client name",
+          "default": "Client Name"
+        },
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo image",
+          "info": "Upload from Shopify Files. Will be filtered to Dark Mocha tone."
         }
       ]
     }
