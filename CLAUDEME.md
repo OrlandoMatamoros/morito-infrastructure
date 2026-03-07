@@ -33,17 +33,16 @@
 
 #### 4. Integrated Corporate Tracker (Marquee on Cacao Plantation)
 - **Files:** `sections/image-banner.liquid`, `templates/index.json`
-- **Change:** Glassmorphic corporate logo marquee injected into the image-banner section (cacao plantation), lower third
-- **Logo assets (Shopify Files, loaded via `file_url`):**
+- **Change:** Glassmorphic corporate logo marquee, vertically centered on the cacao plantation image
+- **Logo assets (Shopify Files, loaded via `file_url` with string literals):**
   - `Cypresshills logo.png`, `ford foundation logo.png`, `Hotbread Kitchen logo.png`, `Macys logo.png`
   - `mexico now logo.png`, `One Horizon logo.png`, `Porcelanosa logo.png`, `TD Bank logo.png`
 - **Design specs:**
+  - Position: `top: 50%; transform: translateY(-50%); z-index: 10` — exact vertical center
   - Background: `rgba(249, 245, 240, 0.82)` (Organic Cream 82% opacity)
   - `backdrop-filter: blur(10px)` — plantation image visible through the silk-like strip
-  - `border-top: 1px solid rgba(255, 255, 255, 0.3)` — subtle glass edge
-  - Logo filter: `brightness(0) saturate(100%) invert(13%) sepia(18%) saturate(1042%) hue-rotate(324deg) brightness(96%) contrast(90%)` — Dark Mocha (#332520) tone
+  - Borders: `1px solid rgba(255, 255, 255, 0.3)` top and bottom — subtle glass edges
+  - Logo filter: Dark Mocha (#332520) CSS filter applied to all logos
   - Infinite horizontal scroll animation (35s cycle, configurable via schema)
-  - Hover: pauses animation, removes filter to show original logo colors
-- **Schema:** `show_marquee` toggle, `marquee_heading` text, `marquee_speed` range (15-60s)
-- **Accessibility:** `prefers-reduced-motion` wraps to static grid, duplicate items hidden with `aria-hidden`
-- **Rationale:** Corporate social proof integrated directly on brand origin imagery; glassmorphic strip reinforces premium positioning
+- **Fix (v3):** Replaced variable-based `file_url` with string literal syntax (`{{ 'filename.png' | file_url }}`) — fixes logo loading issue
+- **Fix (v3):** Moved strip from `bottom: 0` to `top: 50%` per client request
