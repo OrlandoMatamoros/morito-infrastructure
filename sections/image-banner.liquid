@@ -122,27 +122,23 @@
       {%- endif -%}
       <div class="corporate-marquee__track-wrapper">
         <div class="corporate-marquee__track" style="--marquee-speed: {{ section.settings.marquee_speed | default: 35 }}s;">
-          {%- assign marquee_logo_files = 'Cypresshills logo.png,ford foundation logo.png,Hotbread Kitchen logo.png,Macys logo.png,mexico now logo.png,One Horizon logo.png,Porcelanosa logo.png,TD Bank logo.png' | split: ',' -%}
-          {%- assign marquee_logo_alts = 'Cypress Hills,Ford Foundation,Hot Bread Kitchen,Macys,Mexico Now,One Horizon,Porcelanosa,TD Bank' | split: ',' -%}
-          {%- for logo_file in marquee_logo_files -%}
-            {%- assign logo_src = logo_file | file_url -%}
-            {%- if logo_src == blank or logo_src == '' -%}
-              {%- assign logo_src = logo_file | asset_url -%}
-            {%- endif -%}
-            <div class="corporate-marquee__item">
-              <img src="{{ logo_src }}" alt="{{ marquee_logo_alts[forloop.index0] }}" loading="lazy">
-            </div>
-          {%- endfor -%}
+          <div class="corporate-marquee__item"><img src="{{ 'Cypresshills_logo.png' | file_url }}" alt="Cypress Hills" loading="lazy"></div>
+          <div class="corporate-marquee__item"><img src="{{ 'ford_foundation_logo.png' | file_url }}" alt="Ford Foundation" loading="lazy"></div>
+          <div class="corporate-marquee__item"><img src="{{ 'Hotbread_Kitchen_logo.png' | file_url }}" alt="Hot Bread Kitchen" loading="lazy"></div>
+          <div class="corporate-marquee__item"><img src="{{ 'Macys_logo.png' | file_url }}" alt="Macy's" loading="lazy"></div>
+          <div class="corporate-marquee__item"><img src="{{ 'mexico_now_logo.png' | file_url }}" alt="Mexico Now" loading="lazy"></div>
+          <div class="corporate-marquee__item"><img src="{{ 'One_Horizon_logo.png' | file_url }}" alt="One Horizon" loading="lazy"></div>
+          <div class="corporate-marquee__item"><img src="{{ 'Porcelanosa_logo.png' | file_url }}" alt="Porcelanosa" loading="lazy"></div>
+          <div class="corporate-marquee__item"><img src="{{ 'TD_Bank_logo.png' | file_url }}" alt="TD Bank" loading="lazy"></div>
           {%- comment -%} Duplicate set for seamless infinite loop {%- endcomment -%}
-          {%- for logo_file in marquee_logo_files -%}
-            {%- assign logo_src = logo_file | file_url -%}
-            {%- if logo_src == blank or logo_src == '' -%}
-              {%- assign logo_src = logo_file | asset_url -%}
-            {%- endif -%}
-            <div class="corporate-marquee__item" aria-hidden="true">
-              <img src="{{ logo_src }}" alt="" loading="lazy">
-            </div>
-          {%- endfor -%}
+          <div class="corporate-marquee__item" aria-hidden="true"><img src="{{ 'Cypresshills_logo.png' | file_url }}" alt="" loading="lazy"></div>
+          <div class="corporate-marquee__item" aria-hidden="true"><img src="{{ 'ford_foundation_logo.png' | file_url }}" alt="" loading="lazy"></div>
+          <div class="corporate-marquee__item" aria-hidden="true"><img src="{{ 'Hotbread_Kitchen_logo.png' | file_url }}" alt="" loading="lazy"></div>
+          <div class="corporate-marquee__item" aria-hidden="true"><img src="{{ 'Macys_logo.png' | file_url }}" alt="" loading="lazy"></div>
+          <div class="corporate-marquee__item" aria-hidden="true"><img src="{{ 'mexico_now_logo.png' | file_url }}" alt="" loading="lazy"></div>
+          <div class="corporate-marquee__item" aria-hidden="true"><img src="{{ 'One_Horizon_logo.png' | file_url }}" alt="" loading="lazy"></div>
+          <div class="corporate-marquee__item" aria-hidden="true"><img src="{{ 'Porcelanosa_logo.png' | file_url }}" alt="" loading="lazy"></div>
+          <div class="corporate-marquee__item" aria-hidden="true"><img src="{{ 'TD_Bank_logo.png' | file_url }}" alt="" loading="lazy"></div>
         </div>
       </div>
     </div>
