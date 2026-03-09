@@ -1,5 +1,5 @@
 {%- comment -%}
-  Best Sellers — Premium product cards with HD images & levitation hover
+  Best Sellers — 3D Perspective cards with HD images & viewport-triggered levitation
 {%- endcomment -%}
 
 <style>
@@ -43,8 +43,10 @@
     padding: 0 40px;
   }
 
-  /* ── Product Card ── */
+  /* ── Product Card — 3D Perspective Container ── */
   .best-sellers__card {
+    --rotate-x: 0deg;
+    --rotate-y: 0deg;
     background-color: #F9F5F0;
     border: none;
     border-radius: 0;
@@ -52,33 +54,35 @@
     position: relative;
     display: flex;
     flex-direction: column;
-  }
-
-  /* ── Levitation Hover ── */
-  .levitate-hover {
     box-shadow: 0 10px 20px -10px rgba(51, 37, 32, 0.1);
     transition:
       transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
       box-shadow 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    will-change: transform, box-shadow;
+    will-change: transform;
+    transform-style: preserve-3d;
   }
 
+  /* ── 3D Perspective Hover (Desktop) ── */
   @media (hover: hover) {
-    .levitate-hover:hover {
-      transform: translateY(-10px) scale(1.03) rotate(1.5deg);
+    .best-sellers__card:hover {
+      transform: perspective(1000px) rotateX(var(--rotate-x)) rotateY(var(--rotate-y));
       box-shadow:
-        0 25px 50px -15px rgba(51, 37, 32, 0.18),
-        0 10px 25px -8px rgba(51, 37, 32, 0.1);
+        0 30px 60px -20px rgba(51, 37, 32, 0.22),
+        0 15px 30px -10px rgba(51, 37, 32, 0.1);
     }
 
-    .levitate-hover:hover .best-sellers__add-btn {
+    .best-sellers__card:hover .best-sellers__image-wrapper img {
+      transform: translateZ(50px) scale(1.04);
+    }
+
+    .best-sellers__card:hover .best-sellers__add-btn {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0) translateZ(30px);
       pointer-events: auto;
     }
 
-    .levitate-hover:hover .best-sellers__image-wrapper img {
-      transform: scale(1.02);
+    .best-sellers__card:hover .best-sellers__info {
+      transform: translateZ(25px);
     }
   }
 
@@ -88,11 +92,12 @@
     border: none;
     padding: 0;
     margin: 0;
-    overflow: hidden;
+    overflow: visible;
     aspect-ratio: 1 / 1;
     display: flex;
     align-items: center;
     justify-content: center;
+    transform-style: preserve-3d;
   }
 
   .best-sellers__image-wrapper img {
@@ -103,7 +108,10 @@
     border: none;
     outline: none;
     filter: drop-shadow(0 15px 20px rgba(51, 37, 32, 0.12));
-    transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.45s ease;
+    transition:
+      transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+      filter 0.5s ease;
+    transform-style: preserve-3d;
   }
 
   .best-sellers__image-link {
@@ -111,6 +119,7 @@
     text-decoration: none;
     border: none;
     outline: none;
+    transform-style: preserve-3d;
   }
 
   /* ── Product Info ── */
@@ -119,6 +128,8 @@
     padding: 20px 10px 15px;
     background-color: #F9F5F0;
     position: relative;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform-style: preserve-3d;
   }
 
   .best-sellers__product-title {
@@ -144,13 +155,13 @@
     margin: 0 0 18px;
   }
 
-  /* ── Add to Cart Button — appears from below on hover ── */
+  /* ── Add to Cart Button ── */
   .best-sellers__add-btn {
     display: inline-block;
     background-color: #D68A59;
     color: #fff;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 0.85rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -171,7 +182,6 @@
     background-color: #332520;
   }
 
-  /* Always visible button (when no product linked) */
   .best-sellers__add-btn--visible {
     opacity: 1;
     transform: translateY(0);
@@ -211,7 +221,41 @@
     }
   }
 
-  /* ── Mobile: 1 Column ── */
+  /* ═══════════════════════════════════════════════════
+     DESKTOP ≥990px — Luxury Scale & 3D depth
+     ═══════════════════════════════════════════════════ */
+  @media screen and (min-width: 990px) {
+    .best-sellers__image-wrapper {
+      transform: scale(1.1);
+      transform-origin: center top;
+      margin-bottom: 10px;
+    }
+
+    .best-sellers__product-title {
+      font-size: 1.8rem;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .best-sellers__price {
+      font-size: 1.5rem;
+      font-weight: 500;
+      opacity: 1;
+    }
+
+    .best-sellers__add-btn {
+      font-size: 1.1rem;
+      padding: 16px 36px;
+    }
+
+    .best-sellers__info {
+      padding: 28px 15px 20px;
+    }
+  }
+
+  /* ═══════════════════════════════════════════════════
+     MOBILE — Viewport-triggered levitation
+     ═══════════════════════════════════════════════════ */
   @media screen and (max-width: 749px) {
     .best-sellers {
       padding: 40px 0 60px;
@@ -219,8 +263,8 @@
 
     .best-sellers__grid {
       grid-template-columns: 1fr;
-      gap: 35px;
-      padding: 0 24px;
+      gap: 45px;
+      padding: 0 28px;
       max-width: 480px;
     }
 
@@ -228,27 +272,44 @@
       font-size: 2rem;
     }
 
+    .best-sellers__info {
+      padding: 22px 16px 18px;
+    }
+
+    .best-sellers__product-title {
+      font-size: 1.35rem;
+      margin-bottom: 8px;
+    }
+
+    .best-sellers__price {
+      font-size: 1.15rem;
+      margin-bottom: 20px;
+    }
+
     .best-sellers__add-btn {
       opacity: 1;
       transform: translateY(0);
       pointer-events: auto;
+      font-size: 0.95rem;
+      padding: 14px 32px;
     }
 
-    .levitate-hover {
+    .best-sellers__card {
       box-shadow: 0 8px 16px -8px rgba(51, 37, 32, 0.12);
     }
-  }
 
-  /* ── Desktop: Luxury font sizing ── */
-  @media screen and (min-width: 990px) {
-    .best-sellers__price {
-      font-size: 1.4rem;
+    /* Viewport-triggered entrance animation */
+    .best-sellers__card {
+      opacity: 0;
+      transform: translateY(40px);
+      transition:
+        opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
-    .best-sellers__add-btn {
-      font-size: 1.1rem;
-      font-weight: 700;
-      padding: 16px 36px;
+    .best-sellers__card.is-visible {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 
@@ -258,18 +319,32 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 30px;
     }
+
+    .best-sellers__product-title {
+      font-size: 1.5rem;
+    }
+
+    .best-sellers__price {
+      font-size: 1.2rem;
+    }
   }
 
   /* ── Reduced Motion ── */
   @media (prefers-reduced-motion: reduce) {
-    .levitate-hover,
+    .best-sellers__card,
     .best-sellers__image-wrapper img,
+    .best-sellers__info,
     .best-sellers__add-btn {
-      transition: none;
+      transition: none !important;
     }
 
-    .levitate-hover:hover {
-      transform: none;
+    .best-sellers__card:hover {
+      transform: none !important;
+    }
+
+    .best-sellers__card {
+      opacity: 1 !important;
+      transform: none !important;
     }
   }
 </style>
@@ -287,7 +362,7 @@
   <div class="best-sellers__grid">
     {%- for block in section.blocks -%}
       {%- assign product = block.settings.product -%}
-      <div class="best-sellers__card levitate-hover" {{ block.shopify_attributes }}>
+      <div class="best-sellers__card" {{ block.shopify_attributes }}>
         <a href="{{ product.url | default: '#' }}" class="best-sellers__image-link" aria-label="{{ product.title | escape | default: block.settings.image_file }}">
           <div class="best-sellers__image-wrapper">
             {%- if block.settings.image_url != blank -%}
@@ -345,6 +420,103 @@
     </div>
   {%- endif -%}
 </section>
+
+<script>
+  (function() {
+    'use strict';
+
+    /* ═══════════════════════════════════════════════════
+       3D PERSPECTIVE TILT — Mouse-tracked card rotation
+       Calculates rotateX/Y from cursor position relative
+       to card center. Smooth LERP on leave.
+       ═══════════════════════════════════════════════════ */
+    var isDesktop = window.matchMedia('(hover: hover) and (min-width: 750px)');
+
+    function initPerspectiveTilt() {
+      if (!isDesktop.matches) return;
+
+      var cards = document.querySelectorAll('.best-sellers__card');
+      cards.forEach(function(card) {
+        if (card._tiltBound) return;
+        card._tiltBound = true;
+
+        card.addEventListener('mousemove', function(e) {
+          var rect = card.getBoundingClientRect();
+          var x = e.clientX - rect.left;
+          var y = e.clientY - rect.top;
+          var centerX = rect.width / 2;
+          var centerY = rect.height / 2;
+
+          /* Max rotation: ±8deg — subtle but perceptible */
+          var rotateY = ((x - centerX) / centerX) * 8;
+          var rotateX = ((centerY - y) / centerY) * 6;
+
+          card.style.setProperty('--rotate-x', rotateX + 'deg');
+          card.style.setProperty('--rotate-y', rotateY + 'deg');
+        });
+
+        card.addEventListener('mouseleave', function() {
+          card.style.setProperty('--rotate-x', '0deg');
+          card.style.setProperty('--rotate-y', '0deg');
+        });
+      });
+    }
+
+    /* ═══════════════════════════════════════════════════
+       INTERSECTION OBSERVER — Mobile viewport entrance
+       Cards fade-in + slide-up when scrolled into view
+       ═══════════════════════════════════════════════════ */
+    function initViewportEntrance() {
+      if (isDesktop.matches) {
+        /* Desktop: cards always visible, no entrance animation */
+        document.querySelectorAll('.best-sellers__card').forEach(function(c) {
+          c.classList.add('is-visible');
+        });
+        return;
+      }
+
+      if (!('IntersectionObserver' in window)) {
+        document.querySelectorAll('.best-sellers__card').forEach(function(c) {
+          c.classList.add('is-visible');
+        });
+        return;
+      }
+
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      document.querySelectorAll('.best-sellers__card').forEach(function(card) {
+        observer.observe(card);
+      });
+    }
+
+    /* Init on DOM ready */
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() {
+        initPerspectiveTilt();
+        initViewportEntrance();
+      });
+    } else {
+      initPerspectiveTilt();
+      initViewportEntrance();
+    }
+
+    /* Re-init on media query change (resize/orientation) */
+    isDesktop.addEventListener('change', function() {
+      initPerspectiveTilt();
+      initViewportEntrance();
+    });
+  })();
+</script>
 
 {% schema %}
 {

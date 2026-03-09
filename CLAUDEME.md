@@ -110,12 +110,36 @@
   - Button: Roasted Rust `#D68A59`, white text, Montserrat bold (unchanged, confirmed)
   - Card background: Organic Cream `#F9F5F0` (unchanged, confirmed)
 
+#### 7. Best Sellers — 3D Perspective Tilt & Viewport Entrance Animation
+- **File:** `sections/best-sellers.liquid`
+- **Change:** Full rewrite of interaction system — replaced flat levitate-hover with 3D perspective tilt + IntersectionObserver
+- **3D Perspective Tilt (Desktop):**
+  - `transform: perspective(1000px) rotateX(var(--rotate-x)) rotateY(var(--rotate-y))`
+  - CSS custom properties driven by JS `mousemove` — max rotation ±8° Y / ±6° X
+  - `transform-style: preserve-3d` on card, wrapper, link, info
+  - Image: `transform: translateZ(50px) scale(1.04)` on hover — pops out of card plane
+  - Info text: `translateZ(25px)` / Button: `translateZ(30px)` — layered depth
+  - `mouseleave` resets to `0deg` with CSS transition easing
+- **Desktop Scale (≥990px):**
+  - Image wrapper: `scale(1.1)` — 110% of original
+  - Product title: `1.8rem` Playfair Display (was `1.25rem`)
+  - Price: `1.5rem` font-weight 500, Dark Mocha (was `1rem`)
+  - Button: `1.1rem` / 700 weight / `16px 36px` padding
+- **Mobile Viewport Entrance (≤749px):**
+  - IntersectionObserver: `threshold: 0.15`, `rootMargin: 0px 0px -40px 0px`
+  - Cards start `opacity: 0; translateY(40px)` → `.is-visible` triggers `opacity: 1; translateY(0)`
+  - 0.7s cubic-bezier transition, one-shot (unobserve after trigger)
+  - Fallback: if IntersectionObserver unavailable, cards visible immediately
+  - Generous spacing: gap `45px`, padding `28px`, title `1.35rem`, price `1.15rem`
+- **Accessibility:** `prefers-reduced-motion` disables all transitions and forces visible state
+
 ---
 
 ### Sprint Summary — 2026-03-09
-All 5 optimization pillars completed:
+All 6 optimization pillars completed:
 1. Corporate Marquee — transparent-background logos
 2. Decadent Flavors — floating levitation effect with aura
 3. Mobile Carousel — reduced Ken Burns zoom
 4. Text Overlay Transparency — glass effect + subtitle + button
 5. Best Sellers — luxury polish with clean edited assets
+6. Best Sellers — 3D perspective tilt interaction + mobile IntersectionObserver entrance
