@@ -95,3 +95,27 @@
   - Desktop padding: `1.4rem` (was `1rem`) — +40% taller
   - Mobile padding: `1.15rem` (was `0.9rem`) — +28% taller
   - Text remains centered via flexbox alignment
+
+#### 6. Best Sellers — Luxury Polish with Clean Assets (Sprint Close)
+- **Files:** `sections/best-sellers.liquid`, `templates/index.json`
+- **Change:** Updated product images to edited transparent-background PNGs via direct CDN URLs; desktop UI refinements
+- **New images (CDN-injected):**
+  - Hazelnut: `Hazelnut_best_sellers.png`
+  - Coconut: `Coconut_Best_sellers.png`
+  - Salted Peanut: `Salted_best_sellers.png`
+- **New schema setting:** `image_url` (direct CDN URL, takes priority over `image_file` asset)
+- **Design specs:**
+  - Image levitation: `filter: drop-shadow(0 15px 20px rgba(51, 37, 32, 0.12))`
+  - Desktop (≥990px): price `1.4rem`, button `1.1rem` / `font-weight: 700` / `padding: 16px 36px`
+  - Button: Roasted Rust `#D68A59`, white text, Montserrat bold (unchanged, confirmed)
+  - Card background: Organic Cream `#F9F5F0` (unchanged, confirmed)
+
+---
+
+### Sprint Summary — 2026-03-09
+All 5 optimization pillars completed:
+1. Corporate Marquee — transparent-background logos
+2. Decadent Flavors — floating levitation effect with aura
+3. Mobile Carousel — reduced Ken Burns zoom
+4. Text Overlay Transparency — glass effect + subtitle + button
+5. Best Sellers — luxury polish with clean edited assets

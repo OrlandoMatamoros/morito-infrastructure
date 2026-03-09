@@ -102,7 +102,8 @@
     display: block;
     border: none;
     outline: none;
-    transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    filter: drop-shadow(0 15px 20px rgba(51, 37, 32, 0.12));
+    transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.45s ease;
   }
 
   .best-sellers__image-link {
@@ -238,6 +239,19 @@
     }
   }
 
+  /* ── Desktop: Luxury font sizing ── */
+  @media screen and (min-width: 990px) {
+    .best-sellers__price {
+      font-size: 1.4rem;
+    }
+
+    .best-sellers__add-btn {
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 16px 36px;
+    }
+  }
+
   /* ── Tablet: 2 Columns ── */
   @media screen and (min-width: 750px) and (max-width: 989px) {
     .best-sellers__grid {
@@ -276,7 +290,15 @@
       <div class="best-sellers__card levitate-hover" {{ block.shopify_attributes }}>
         <a href="{{ product.url | default: '#' }}" class="best-sellers__image-link" aria-label="{{ product.title | escape | default: block.settings.image_file }}">
           <div class="best-sellers__image-wrapper">
-            {%- if block.settings.image_file != blank -%}
+            {%- if block.settings.image_url != blank -%}
+              <img
+                src="{{ block.settings.image_url }}"
+                alt="{{ product.title | escape | default: 'Product image' }}"
+                loading="lazy"
+                width="800"
+                height="800"
+              >
+            {%- elsif block.settings.image_file != blank -%}
               <img
                 src="{{ block.settings.image_file | asset_url }}"
                 alt="{{ product.title | escape | default: block.settings.image_file }}"
@@ -370,6 +392,12 @@
           "id": "image_file",
           "label": "HD Image filename (from assets/)",
           "info": "Exact filename including extension, e.g. Coconut Vegan White Chocolate.jpeg"
+        },
+        {
+          "type": "text",
+          "id": "image_url",
+          "label": "Direct CDN Image URL",
+          "info": "Full Shopify CDN URL. Overrides HD Image filename if provided."
         }
       ]
     }
