@@ -153,10 +153,26 @@
   - Price: `1.8rem`, `font-weight: 600`, full opacity (was `1.5rem` / 500 / 0.75)
   - Button: `15px 40px` padding, Roasted Rust `#D68A59` vibrante
 
+#### 9. Best Sellers — Seamless Cards + Scroll Highlight
+- **File:** `sections/best-sellers.liquid`
+- **Change:** Removed white card backgrounds, dark chocolate price, scroll-triggered highlight for all devices
+- **Visual fixes:**
+  - Card, image-wrapper, info: `background: transparent` — cards fuse with Organic Cream section
+  - Card `box-shadow: none` in resting state — clean, borderless
+  - Price color: `#3E2117` (dark chocolate) with `font-weight: 600`
+- **Scroll entrance (all devices):**
+  - IntersectionObserver now runs on desktop AND mobile (was mobile-only)
+  - Staggered entrance: cards 1/2/3 enter with 0s / 0.15s / 0.3s delay
+  - Cards start `opacity: 0; translateY(30px)` → `.is-visible` fades in
+- **Hover refinements:**
+  - Card scales `1.04` on hover for emphasis
+  - Product title transitions to Warm Copper `#D68A59` on hover
+  - Image gets `brightness(1.06)` — chocolate pops with warmth
+
 ---
 
 ### Sprint Summary — 2026-03-09
-All 7 optimization rounds completed:
+All 8 optimization rounds completed:
 1. Corporate Marquee — transparent-background logos
 2. Decadent Flavors — floating levitation effect with aura
 3. Mobile Carousel — reduced Ken Burns zoom
@@ -164,3 +180,4 @@ All 7 optimization rounds completed:
 5. Best Sellers — luxury polish with clean edited assets
 6. Best Sellers — 3D perspective tilt + IntersectionObserver entrance
 7. Best Sellers — 4K quality reconstruction + intensified 3D + typography hierarchy
+8. Best Sellers — seamless transparent cards + scroll highlight + dark chocolate price
