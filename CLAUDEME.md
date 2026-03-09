@@ -169,10 +169,24 @@
   - Product title transitions to Warm Copper `#D68A59` on hover
   - Image gets `brightness(1.06)` — chocolate pops with warmth
 
+#### 10. Best Sellers — Kinetic Luxury Animation + Dark Mocha Pricing
+- **File:** `sections/best-sellers.liquid`
+- **Change:** Triple-spin hover animation, price emphasis, 4K rendering optimization
+- **`kineticLuxury` keyframe:**
+  - 3 full rotations (1080°) on Y-axis + scale to 1.3 in 0.5s
+  - Elastic bounce: `cubic-bezier(0.34, 1.56, 0.64, 1)` — overshoot at 70% then settle
+  - Keyframe structure: 0% → 70% spin+zoom → 85% slight shrink (1.22) → 100% final (1.3)
+- **Price styling:**
+  - Color: `#3E2117` (dark chocolate), `font-weight: 700`
+  - Hover: `transform: scale(1.2)` with elastic easing — 20% growth guides eye to purchase
+  - `display: inline-block` for transform support
+- **Title hover:** transitions to Warm Copper `#D68A59`
+- **Image quality:** `image-rendering: -webkit-optimize-contrast` — zero blur during animation
+
 ---
 
 ### Sprint Summary — 2026-03-09
-All 8 optimization rounds completed:
+All 9 optimization rounds completed:
 1. Corporate Marquee — transparent-background logos
 2. Decadent Flavors — floating levitation effect with aura
 3. Mobile Carousel — reduced Ken Burns zoom
@@ -181,3 +195,4 @@ All 8 optimization rounds completed:
 6. Best Sellers — 3D perspective tilt + IntersectionObserver entrance
 7. Best Sellers — 4K quality reconstruction + intensified 3D + typography hierarchy
 8. Best Sellers — seamless transparent cards + scroll highlight + dark chocolate price
+9. Best Sellers — kinetic luxury triple-spin animation + dark mocha pricing
