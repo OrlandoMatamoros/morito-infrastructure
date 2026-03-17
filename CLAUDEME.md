@@ -230,7 +230,16 @@
 - **Remaining slides:** Sticks (hero), Mini Cups (matcha/strawberry), Corporate Gifting
 - **Rationale:** 3 slides = tighter messaging, faster perceived rotation, less cognitive load
 
-#### 4. Glassmorphism Refinement — Lighter, Luxury Organic
+#### 4. Luminous Gold Hero Text — Luxury Contrast Fix
+- **File:** `sections/slideshow.liquid`
+- **Change:** Replaced Dark Mocha heading color with Luminous Gold `#C5A059` on desktop glassmorphism text box
+- **Specs:**
+  - All `h2.banner__heading` inside `.slideshow__text.banner__box`: `color: #C5A059`
+  - Micro-shadow: `text-shadow: 0 2px 4px rgba(51, 37, 32, 0.4)` — separates text from hazelnut/product details in background
+  - `.first` heading also uses `#C5A059` for unified gold treatment
+- **Rationale:** Dark Mocha text on translucent glass was hard to read against dark product photography; gold provides luxury contrast while maintaining brand identity
+
+#### 5. Glassmorphism Refinement — Lighter, Luxury Organic
 - **File:** `sections/slideshow.liquid`
 - **Change:** Reduced text box opacity to match Corporate Gifting slide aesthetic across all slides
 - **Specs:**
