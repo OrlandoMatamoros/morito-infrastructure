@@ -285,6 +285,54 @@
 
 ---
 
+## Session: 2026-03-24
+
+### Changes Made
+
+#### 1. Slideshow Copy Update — All 3 Slides
+- **File:** `templates/index.json`
+- **Change:** Updated heading, subheading, and CTA text for all 3 slideshow slides per client-approved copy
+- **Slide 1 (Sticks):**
+  - Heading: "Cacao-Driven Confections. / Built on purity. / Defined by human craft."
+  - Subheading: "Artisanal vegan chocolate, handcrafted in Brooklyn with ethically sourced cacao."
+  - CTA: "Shop now"
+- **Slide 2 (Mini Cups):**
+  - Heading: "Morito / Mini / Cups"
+  - Subheading: "Crafted with Purpose. Filled with Intention."
+  - CTA: "Discover our seasonal flavors"
+- **Slide 3 (Corporate Gifting):**
+  - Heading: "Gifting Is a Statement. / Make It / Intentional."
+  - Subheading: "Premium cacao-driven confections for corporate programs, client appreciation, and curated events."
+  - CTA: "Inquire about gifting"
+
+#### 2. Slideshow Glassmorphism — Reduced Opacity
+- **File:** `sections/slideshow.liquid`
+- **Change:** Reduced glass effect opacity to let background images show through more
+- **Specs:**
+  - Unified glassmorphism box: `rgba(249, 245, 240, 0.35)` (was `0.55`)
+  - `.glass-effect` class: `rgba(249, 245, 240, 0.35)` (was `0.55`)
+  - `backdrop-filter: blur(10px)` preserved
+- **Rationale:** Client feedback — translucent box was covering too much of the background imagery
+
+#### 3. 'Decadent Flavor' Section Replaced with 'Clean Ingredients'
+- **Files:** `sections/clean-ingredients.liquid` (new), `templates/index.json`
+- **Change:** Removed `image-with-text` section (floating levitation effect with "Decadent flavors; Simple ingredients") and replaced with a comparative ingredient layout
+- **New section structure:**
+  - Title: "Less ingredients. More intention."
+  - Two columns separated by a fine vertical divider (`#E0D8D0`)
+  - Left column: "What you often find" — 15+ ingredients (Palm oil, Emulsifiers, Stabilizers, + more)
+  - Right column: "Morito Hazelnut" — 3 ingredients (Cacao, Organic hazelnuts, Organic cane sugar)
+  - Footer: "Nothing more. Nothing needed." (italic Playfair Display)
+- **Design specs:**
+  - Background: Organic Cream `#F9F5F0`
+  - Titles: Playfair Display, Dark Mocha `#332520`
+  - Body text: Montserrat, `#332520`
+  - Bullet dots: Warm Copper `#D68A59`
+  - Mobile: columns stack vertically with horizontal divider
+- **Rationale:** Client requested a clean ingredients comparison layout to highlight Morito's purity vs. conventional chocolate
+
+---
+
 ### Sprint Summary — 2026-03-09
 All 10 optimization rounds completed:
 1. Corporate Marquee — transparent-background logos

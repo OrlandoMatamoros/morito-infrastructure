@@ -16,12 +16,12 @@
           "type": "slide",
           "settings": {
             "hero_image_file": "Heroimage.jpg",
-            "heading": "Unwrap the",
-            "heading2": "Art of",
-            "heading3": "Chocolate.",
+            "heading": "Cacao-Driven Confections.",
+            "heading2": "Built on purity.",
+            "heading3": "Defined by human craft.",
             "heading_size": "h0",
             "subheading": "Artisanal vegan chocolate, handcrafted in Brooklyn with ethically sourced cacao.",
-            "button_label": "Shop Now",
+            "button_label": "Shop now",
             "link": "shopify://collections/all-products",
             "button_style_secondary": false,
             "box_align": "middle-left",
@@ -37,12 +37,12 @@
           "type": "slide",
           "settings": {
             "hero_image_file": "MatchaStrawberryclear.png",
-            "heading": "New:",
-            "heading2": "Morito",
-            "heading3": "Mini Cups",
+            "heading": "Morito",
+            "heading2": "Mini",
+            "heading3": "Cups",
             "heading_size": "h0",
-            "subheading": "Artisanal vegan chocolate, handcrafted in Brooklyn with ethically sourced cacao.",
-            "button_label": "Shop Now",
+            "subheading": "Crafted with Purpose. Filled with Intention.",
+            "button_label": "Discover our seasonal flavors",
             "link": "shopify://collections/all-products",
             "button_style_secondary": false,
             "box_align": "middle-left",
@@ -58,12 +58,12 @@
           "type": "slide",
           "settings": {
             "hero_image_file": "Final Corporate Gifting .png",
-            "heading": "Chocolate for",
-            "heading2": "Special Events &",
-            "heading3": "Corporate Gifting",
+            "heading": "Gifting Is a Statement.",
+            "heading2": "Make It",
+            "heading3": "Intentional.",
             "heading_size": "h0",
-            "subheading": "Thoughtfully crafted vegan chocolate for teams, clients, weddings, and celebrations.",
-            "button_label": "Inquire About Gifting",
+            "subheading": "Premium cacao-driven confections for corporate programs, client appreciation, and curated events.",
+            "button_label": "Inquire about gifting",
             "link": "shopify://pages/special-events",
             "button_style_secondary": false,
             "box_align": "middle-left",
@@ -138,36 +138,17 @@
         "select_main_pro": "pumpkin-seed-cranberry"
       }
     },
-    "16603043175989fd50": {
-      "type": "image-with-text",
-      "blocks": {
-        "166030431729745ef6-0": {
-          "type": "heading",
-          "settings": {
-            "heading": "",
-            "head1": "<p>\"<em><strong>Decadent flavors;</strong></em></p>",
-            "head2": "<p><strong>Simple<br/>ingredients</strong>\"</p>",
-            "heading_size": "h1"
-          }
-        }
-      },
-      "block_order": [
-        "166030431729745ef6-0"
-      ],
+    "clean-ingredients-1": {
+      "type": "clean-ingredients",
       "settings": {
-        "image": "shopify://shop_images/MatchaStrawberryclear_-_Edited.png",
-        "animated_border": false,
-        "floating_image": true,
-        "height": "small",
-        "desktop_image_width": "medium",
-        "layout": "text_first",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "right",
-        "content_layout": "no-overlap",
-        "color_scheme": "background-1",
-        "mobile_content_alignment": "center",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "title": "Less ingredients. More intention.",
+        "left_subtitle": "What you often find",
+        "left_count": "15+ ingredients",
+        "left_items": "Palm oil, Emulsifiers, Stabilizers, + more",
+        "right_subtitle": "Morito Hazelnut",
+        "right_count": "3 ingredients",
+        "right_items": "Cacao, Organic hazelnuts, Organic cane sugar",
+        "footer_text": "Nothing more. Nothing needed."
       }
     },
     "166056180431e93012": {
@@ -399,7 +380,7 @@
     "166081301232163903",
     "best-sellers-1",
     "16603016468409c491",
-    "16603043175989fd50",
+    "clean-ingredients-1",
     "166056180431e93012",
     "16606328762607decd",
     "1660889514fbd70af2",

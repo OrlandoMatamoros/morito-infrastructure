@@ -1,0 +1,243 @@
+<style>
+  .clean-ingredients {
+    background-color: #F9F5F0;
+    padding: 80px 20px;
+  }
+
+  .clean-ingredients__container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .clean-ingredients__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #332520;
+    text-align: center;
+    margin-bottom: 60px;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .clean-ingredients__columns {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .clean-ingredients__col {
+    flex: 1;
+    max-width: 400px;
+    padding: 0 40px;
+  }
+
+  .clean-ingredients__divider {
+    width: 1px;
+    background-color: #E0D8D0;
+    align-self: stretch;
+    flex-shrink: 0;
+  }
+
+  .clean-ingredients__subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #332520;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 12px;
+    opacity: 0.7;
+  }
+
+  .clean-ingredients__count {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #332520;
+    margin-bottom: 24px;
+    line-height: 1.2;
+  }
+
+  .clean-ingredients__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .clean-ingredients__list li {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #332520;
+    padding: 8px 0;
+    position: relative;
+    padding-left: 20px;
+  }
+
+  .clean-ingredients__list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #D68A59;
+  }
+
+  .clean-ingredients__footer {
+    text-align: center;
+    margin-top: 60px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-style: italic;
+    color: #332520;
+    opacity: 0.8;
+    letter-spacing: 0.01em;
+  }
+
+  /* ── Mobile ── */
+  @media screen and (max-width: 749px) {
+    .clean-ingredients {
+      padding: 50px 20px;
+    }
+
+    .clean-ingredients__title {
+      font-size: 2rem;
+      margin-bottom: 40px;
+    }
+
+    .clean-ingredients__columns {
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .clean-ingredients__divider {
+      width: 60%;
+      height: 1px;
+      align-self: center;
+    }
+
+    .clean-ingredients__col {
+      padding: 0;
+      text-align: center;
+      max-width: 100%;
+    }
+
+    .clean-ingredients__list li {
+      justify-content: center;
+    }
+
+    .clean-ingredients__count {
+      font-size: 1.8rem;
+    }
+
+    .clean-ingredients__footer {
+      margin-top: 40px;
+      font-size: 1.1rem;
+    }
+  }
+</style>
+
+<div class="clean-ingredients">
+  <div class="clean-ingredients__container">
+    <h2 class="clean-ingredients__title">{{ section.settings.title | escape }}</h2>
+
+    <div class="clean-ingredients__columns">
+      <!-- Left column: What you often find -->
+      <div class="clean-ingredients__col">
+        <p class="clean-ingredients__subtitle">{{ section.settings.left_subtitle | escape }}</p>
+        <p class="clean-ingredients__count">{{ section.settings.left_count | escape }}</p>
+        <ul class="clean-ingredients__list">
+          {%- assign left_items = section.settings.left_items | split: ',' -%}
+          {%- for item in left_items -%}
+            <li>{{ item | strip | escape }}</li>
+          {%- endfor -%}
+        </ul>
+      </div>
+
+      <div class="clean-ingredients__divider" aria-hidden="true"></div>
+
+      <!-- Right column: Morito Hazelnut -->
+      <div class="clean-ingredients__col">
+        <p class="clean-ingredients__subtitle">{{ section.settings.right_subtitle | escape }}</p>
+        <p class="clean-ingredients__count">{{ section.settings.right_count | escape }}</p>
+        <ul class="clean-ingredients__list">
+          {%- assign right_items = section.settings.right_items | split: ',' -%}
+          {%- for item in right_items -%}
+            <li>{{ item | strip | escape }}</li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    </div>
+
+    <p class="clean-ingredients__footer">{{ section.settings.footer_text | escape }}</p>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Clean Ingredients",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Less ingredients. More intention."
+    },
+    {
+      "type": "text",
+      "id": "left_subtitle",
+      "label": "Left Column Subtitle",
+      "default": "What you often find"
+    },
+    {
+      "type": "text",
+      "id": "left_count",
+      "label": "Left Column Count",
+      "default": "15+ ingredients"
+    },
+    {
+      "type": "text",
+      "id": "left_items",
+      "label": "Left Column Items (comma-separated)",
+      "default": "Palm oil, Emulsifiers, Stabilizers, + more"
+    },
+    {
+      "type": "text",
+      "id": "right_subtitle",
+      "label": "Right Column Subtitle",
+      "default": "Morito Hazelnut"
+    },
+    {
+      "type": "text",
+      "id": "right_count",
+      "label": "Right Column Count",
+      "default": "3 ingredients"
+    },
+    {
+      "type": "text",
+      "id": "right_items",
+      "label": "Right Column Items (comma-separated)",
+      "default": "Cacao, Organic hazelnuts, Organic cane sugar"
+    },
+    {
+      "type": "text",
+      "id": "footer_text",
+      "label": "Footer Text",
+      "default": "Nothing more. Nothing needed."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Clean Ingredients"
+    }
+  ]
+}
+{% endschema %}
