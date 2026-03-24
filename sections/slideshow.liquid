@@ -272,11 +272,14 @@
       box-shadow: 0 8px 32px rgba(51, 37, 32, 0.12);
     }
 
-    /* Headings: Dark Mocha base, Warm Copper for .first (highlighted word) */
+    /* Headings: reduced size to not cover images */
     .slideshow__text.banner__box h2.banner__heading {
       color: #332520;
       background: none;
       text-shadow: none;
+      font-size: 2.6rem;
+      line-height: 1.15;
+      margin-bottom: 2px;
     }
 
     .slideshow__text.banner__box h2.banner__heading.first {
@@ -284,19 +287,13 @@
       background: none;
     }
 
-    /* Subheading: larger, legible on any background */
+    /* Subheading: prominent across all slides */
     .slideshow__text.banner__box .banner__text span {
       background: none;
       color: #332520;
       text-shadow: none;
-      font-size: 1.15rem;
+      font-size: 1.35rem;
       font-weight: 500;
-    }
-
-    /* Slides 2 & 3: 25% larger headline */
-    .slideshow__slide:nth-child(2) .slideshow__text.banner__box .banner__text span,
-    .slideshow__slide:nth-child(3) .slideshow__text.banner__box .banner__text span {
-      font-size: 1.44rem;
     }
   }
 
