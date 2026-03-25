@@ -1,64 +1,79 @@
 <style>
   .clean-ingredients {
-    background-color: #F9F5F0;
-    padding: 90px 20px;
+    background-color: rgba(249, 245, 240, 0.5);
+    padding: 100px 20px;
   }
 
   .clean-ingredients__container {
-    max-width: 1060px;
+    max-width: 1120px;
     margin: 0 auto;
   }
 
   .clean-ingredients__title {
     font-family: 'Playfair Display', serif;
-    font-size: 3.2rem;
+    font-size: 4.5rem;
     font-weight: 700;
     color: #332520;
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 70px;
     letter-spacing: -0.02em;
-    line-height: 1.15;
+    line-height: 1.1;
   }
 
   .clean-ingredients__columns {
     display: flex;
     align-items: stretch;
     justify-content: center;
-    gap: 32px;
+    gap: 36px;
   }
 
   /* ── Card base ── */
   .clean-ingredients__card {
     flex: 1;
-    max-width: 480px;
-    border-radius: 8px;
-    padding: 48px 44px;
+    max-width: 500px;
+    border-radius: 12px;
+    padding: 56px 48px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
   }
 
-  /* ── Left card: Organic Cream, subtle border ── */
+  .clean-ingredients__card:hover {
+    transform: translateY(-4px);
+  }
+
+  /* ── Left card: Organic Cream with depth ── */
   .clean-ingredients__card--left {
     background-color: #F9F5F0;
     border: 1px solid #E0D8D0;
+    box-shadow: 0 4px 20px rgba(51, 37, 32, 0.06);
   }
 
-  /* ── Right card: Warm Copper hero ── */
+  .clean-ingredients__card--left:hover {
+    box-shadow: 0 12px 40px rgba(51, 37, 32, 0.1);
+  }
+
+  /* ── Right card: Warm Copper hero with glow ── */
   .clean-ingredients__card--right {
-    background-color: #D68A59;
+    background: linear-gradient(145deg, #D68A59 0%, #C47A4A 100%);
+    box-shadow: 0 8px 30px rgba(214, 138, 89, 0.25);
   }
 
-  /* ── Subtitle (What you often find / Morito Hazelnut) ── */
+  .clean-ingredients__card--right:hover {
+    box-shadow: 0 16px 50px rgba(214, 138, 89, 0.35);
+  }
+
+  /* ── Subtitle ── */
   .clean-ingredients__subtitle {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.05rem;
+    font-size: 1.45rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
   }
 
   .clean-ingredients__card--left .clean-ingredients__subtitle {
     color: #332520;
-    opacity: 0.65;
+    opacity: 0.6;
   }
 
   .clean-ingredients__card--right .clean-ingredients__subtitle {
@@ -66,13 +81,13 @@
     opacity: 0.85;
   }
 
-  /* ── Count (15+ ingredients / 3 ingredients) ── */
+  /* ── Count ── */
   .clean-ingredients__count {
     font-family: 'Playfair Display', serif;
-    font-size: 3.6rem;
+    font-size: 5rem;
     font-weight: 700;
-    line-height: 1.1;
-    margin-bottom: 28px;
+    line-height: 1.05;
+    margin-bottom: 32px;
   }
 
   .clean-ingredients__card--left .clean-ingredients__count {
@@ -92,20 +107,31 @@
 
   .clean-ingredients__list li {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 400;
     letter-spacing: 0.02em;
-    padding: 10px 0;
+    padding: 11px 0;
     position: relative;
-    padding-left: 24px;
+    padding-left: 26px;
+    border-bottom: 1px solid transparent;
   }
 
   .clean-ingredients__card--left .clean-ingredients__list li {
     color: #332520;
+    border-bottom-color: rgba(224, 216, 208, 0.5);
+  }
+
+  .clean-ingredients__card--left .clean-ingredients__list li:last-child {
+    border-bottom: none;
   }
 
   .clean-ingredients__card--right .clean-ingredients__list li {
     color: #F9F5F0;
+    border-bottom-color: rgba(249, 245, 240, 0.15);
+  }
+
+  .clean-ingredients__card--right .clean-ingredients__list li:last-child {
+    border-bottom: none;
   }
 
   /* ── Bullet dots ── */
@@ -115,8 +141,8 @@
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    width: 7px;
-    height: 7px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
   }
 
@@ -131,12 +157,12 @@
   /* ── Footer ── */
   .clean-ingredients__footer {
     text-align: center;
-    margin-top: 56px;
+    margin-top: 64px;
     font-family: 'Playfair Display', serif;
-    font-size: 1.35rem;
+    font-size: 1.9rem;
     font-style: italic;
     color: #332520;
-    opacity: 0.75;
+    opacity: 0.7;
     letter-spacing: 0.01em;
   }
 
@@ -147,8 +173,8 @@
     }
 
     .clean-ingredients__title {
-      font-size: 2.2rem;
-      margin-bottom: 36px;
+      font-size: 2.8rem;
+      margin-bottom: 40px;
     }
 
     .clean-ingredients__columns {
@@ -162,23 +188,27 @@
       padding: 36px 28px;
     }
 
+    .clean-ingredients__card:hover {
+      transform: none;
+    }
+
     .clean-ingredients__subtitle {
-      font-size: 0.9rem;
+      font-size: 1.1rem;
     }
 
     .clean-ingredients__count {
-      font-size: 2.6rem;
-      margin-bottom: 20px;
+      font-size: 3.2rem;
+      margin-bottom: 22px;
     }
 
     .clean-ingredients__list li {
-      font-size: 1.05rem;
-      padding: 8px 0 8px 22px;
+      font-size: 1.1rem;
+      padding: 9px 0 9px 22px;
     }
 
     .clean-ingredients__footer {
       margin-top: 36px;
-      font-size: 1.15rem;
+      font-size: 1.4rem;
     }
   }
 </style>
@@ -242,10 +272,10 @@
       "default": "15+ ingredients"
     },
     {
-      "type": "text",
+      "type": "textarea",
       "id": "left_items",
       "label": "Left Column Items (comma-separated)",
-      "default": "Palm oil, Emulsifiers, Stabilizers, + more"
+      "default": "Palm oil, High fructose corn syrup, PGPR (E476), Soy lecithin, Artificial vanillin, TBHQ preservative, Carrageenan, Corn syrup solids, Hydrogenated fats, Artificial colors"
     },
     {
       "type": "text",
