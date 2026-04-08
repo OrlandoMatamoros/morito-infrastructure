@@ -206,25 +206,34 @@
                 playsinline
                 poster="{{ block.settings.video_poster | img_url:'master' }}"
               >
-                {%- if block.settings.video_file != blank -%}
-                  <source src="{{ block.settings.video_file | asset_url }}" type="video/mp4">
-                {%- endif -%}
                 {%- if block.settings.video_url != blank -%}
                   <source src="{{ block.settings.video_url }}" type="video/mp4">
+                {%- elsif block.settings.video_file != blank -%}
+                  <source src="{{ block.settings.video_file | asset_url }}" type="video/mp4">
                 {%- endif -%}
                 Your browser does not support the video tag.
               </video>
             </div>
               {%- when 'video_responsive' -%}
             <div class="mission-video-responsive" {{ block.shopify_attributes }}>
-              {%- if block.settings.video_desktop != blank -%}
+              {%- assign desktop_src = block.settings.video_desktop_url | default: block.settings.video_desktop -%}
+              {%- if desktop_src != blank -%}
                 <video class="mission-video--desktop" autoplay muted loop playsinline>
-                  <source src="{{ block.settings.video_desktop | asset_url }}" type="video/mp4">
+                  {%- if block.settings.video_desktop_url != blank -%}
+                    <source src="{{ block.settings.video_desktop_url }}" type="video/mp4">
+                  {%- else -%}
+                    <source src="{{ block.settings.video_desktop | asset_url }}" type="video/mp4">
+                  {%- endif -%}
                 </video>
               {%- endif -%}
-              {%- if block.settings.video_mobile != blank -%}
+              {%- assign mobile_src = block.settings.video_mobile_url | default: block.settings.video_mobile -%}
+              {%- if mobile_src != blank -%}
                 <video class="mission-video--mobile" autoplay muted loop playsinline>
-                  <source src="{{ block.settings.video_mobile | asset_url }}" type="video/mp4">
+                  {%- if block.settings.video_mobile_url != blank -%}
+                    <source src="{{ block.settings.video_mobile_url }}" type="video/mp4">
+                  {%- else -%}
+                    <source src="{{ block.settings.video_mobile | asset_url }}" type="video/mp4">
+                  {%- endif -%}
                 </video>
               {%- endif -%}
               <button class="mission-video__sound-btn" aria-label="Toggle sound" type="button">
@@ -242,24 +251,39 @@
               {%- when 'video_grid' -%}
             <div class="mission-video-grid-container" {{ block.shopify_attributes }}>
               <div class="mission-video-grid">
-                {%- if block.settings.video_file_1 != blank -%}
+                {%- assign vid1 = block.settings.video_url_1 | default: blank -%}
+                {%- if vid1 != blank or block.settings.video_file_1 != blank -%}
                   <div class="mission-video-wrapper">
                     <video class="mission-video" autoplay muted loop playsinline>
-                      <source src="{{ block.settings.video_file_1 | asset_url }}" type="video/mp4">
+                      {%- if vid1 != blank -%}
+                        <source src="{{ vid1 }}" type="video/mp4">
+                      {%- else -%}
+                        <source src="{{ block.settings.video_file_1 | asset_url }}" type="video/mp4">
+                      {%- endif -%}
                     </video>
                   </div>
                 {%- endif -%}
-                {%- if block.settings.video_file_2 != blank -%}
+                {%- assign vid2 = block.settings.video_url_2 | default: blank -%}
+                {%- if vid2 != blank or block.settings.video_file_2 != blank -%}
                   <div class="mission-video-wrapper">
                     <video class="mission-video" autoplay muted loop playsinline>
-                      <source src="{{ block.settings.video_file_2 | asset_url }}" type="video/mp4">
+                      {%- if vid2 != blank -%}
+                        <source src="{{ vid2 }}" type="video/mp4">
+                      {%- else -%}
+                        <source src="{{ block.settings.video_file_2 | asset_url }}" type="video/mp4">
+                      {%- endif -%}
                     </video>
                   </div>
                 {%- endif -%}
-                {%- if block.settings.video_file_3 != blank -%}
+                {%- assign vid3 = block.settings.video_url_3 | default: blank -%}
+                {%- if vid3 != blank or block.settings.video_file_3 != blank -%}
                   <div class="mission-video-wrapper">
                     <video class="mission-video mission-video--slow" autoplay muted loop playsinline>
-                      <source src="{{ block.settings.video_file_3 | asset_url }}" type="video/mp4">
+                      {%- if vid3 != blank -%}
+                        <source src="{{ vid3 }}" type="video/mp4">
+                      {%- else -%}
+                        <source src="{{ block.settings.video_file_3 | asset_url }}" type="video/mp4">
+                      {%- endif -%}
                     </video>
                   </div>
                 {%- endif -%}
@@ -586,15 +610,27 @@
       "settings": [
         {
           "type": "text",
+          "id": "video_desktop_url",
+          "label": "Desktop Video — Shopify CDN URL",
+          "info": "Paste the full URL from Shopify Admin > Content > Files (e.g., https://cdn.shopify.com/s/files/.../morito-hero-desktop.mp4)"
+        },
+        {
+          "type": "text",
+          "id": "video_mobile_url",
+          "label": "Mobile Video — Shopify CDN URL",
+          "info": "Paste the full URL from Shopify Admin > Content > Files (e.g., https://cdn.shopify.com/s/files/.../morito-hero-mobile.mp4)"
+        },
+        {
+          "type": "text",
           "id": "video_desktop",
-          "label": "Desktop Video (16:9) — assets/ filename",
-          "info": "Enter the filename from assets/ folder (e.g., morito-hero-desktop.mp4)"
+          "label": "Desktop Video — assets/ filename (legacy)",
+          "info": "Deprecated: use CDN URL fields above instead"
         },
         {
           "type": "text",
           "id": "video_mobile",
-          "label": "Mobile Video (9:16) — assets/ filename",
-          "info": "Enter the filename from assets/ folder (e.g., morito-hero-mobile.mp4)"
+          "label": "Mobile Video — assets/ filename (legacy)",
+          "info": "Deprecated: use CDN URL fields above instead"
         }
       ]
     },
@@ -605,21 +641,39 @@
       "settings": [
         {
           "type": "text",
+          "id": "video_url_1",
+          "label": "Video 1 — Shopify CDN URL",
+          "info": "Paste the full URL from Shopify Admin > Content > Files"
+        },
+        {
+          "type": "text",
+          "id": "video_url_2",
+          "label": "Video 2 — Shopify CDN URL",
+          "info": "Paste the full URL from Shopify Admin > Content > Files"
+        },
+        {
+          "type": "text",
+          "id": "video_url_3",
+          "label": "Video 3 — Shopify CDN URL",
+          "info": "Paste the full URL from Shopify Admin > Content > Files"
+        },
+        {
+          "type": "text",
           "id": "video_file_1",
-          "label": "Video 1 (from assets/)",
-          "info": "Enter the filename from assets/ folder"
+          "label": "Video 1 — assets/ filename (legacy)",
+          "info": "Deprecated: use CDN URL fields above instead"
         },
         {
           "type": "text",
           "id": "video_file_2",
-          "label": "Video 2 (from assets/)",
-          "info": "Enter the filename from assets/ folder"
+          "label": "Video 2 — assets/ filename (legacy)",
+          "info": "Deprecated: use CDN URL fields above instead"
         },
         {
           "type": "text",
           "id": "video_file_3",
-          "label": "Video 3 (from assets/)",
-          "info": "Enter the filename from assets/ folder"
+          "label": "Video 3 — assets/ filename (legacy)",
+          "info": "Deprecated: use CDN URL fields above instead"
         }
       ]
     }

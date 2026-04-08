@@ -1,11 +1,21 @@
 # Brand assets — reference only, not part of Shopify theme
 brand-assets/
 
-# Large media files not supported by Shopify themes (50MB limit)
-*.MOV
+# Large media files — must live in Shopify Admin > Content > Files (CDN)
+*.mp4
+*.MP4
 *.mov
+*.MOV
+*.webm
 *.avi
-*.pptx
+# Heavy source images (serve via Shopify CDN, not assets/)
+assets/MatchaStrawberryclear.png
+assets/Heroimage.jpg
+
+# Build artifacts / dependencies
+node_modules/
+.cache/
+dist/
 *.pptx
 *.pdf
 

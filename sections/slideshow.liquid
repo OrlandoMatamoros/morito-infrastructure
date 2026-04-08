@@ -90,7 +90,16 @@
         tabindex="-1"
       >
         <div class="slideshow__media banner__media media hero-kb-wrapper">
-          {%- if block.settings.hero_image_file != blank -%}
+          {%- if block.settings.hero_image_cdn_url != blank -%}
+            <img
+              class="hero-kb-image"
+              src="{{ block.settings.hero_image_cdn_url }}"
+              sizes="100vw"
+              loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+              alt="{{ block.settings.heading | escape }} — Morito Chocolates"
+              {% if forloop.first %}fetchpriority="high"{% endif %}
+            >
+          {%- elsif block.settings.hero_image_file != blank -%}
             <img
               class="hero-kb-image"
               src="{{ block.settings.hero_image_file | asset_url }}"
@@ -848,9 +857,15 @@
         },
         {
           "type": "text",
+          "id": "hero_image_cdn_url",
+          "label": "HD Image — Shopify CDN URL",
+          "info": "Paste the full URL from Shopify Admin > Content > Files. Takes priority over all other image settings."
+        },
+        {
+          "type": "text",
           "id": "hero_image_file",
-          "label": "HD Image (assets/ filename)",
-          "info": "Overrides image picker. Use exact filename from assets/ folder."
+          "label": "HD Image — assets/ filename (legacy)",
+          "info": "Deprecated: use Shopify CDN URL field above instead."
         },
         {
           "type": "text",
