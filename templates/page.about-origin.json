@@ -14,18 +14,25 @@
       "settings": {
         "image_1": "shopify://shop_images/pf-1f7906ca--Alloriginstories_50.png",
         "image_2": "shopify://shop_images/Screenshot_2026-02-07_at_8.22.42_AM.png",
-        "content_1": "Morito Chocolates is a Brooklyn-based, female-founded brand crafting cacao-driven confections with a focus on clarity, balance, and intention.\nWe don’t build chocolate around sugar or flavor trends — we build from cacao.",
+        "content_1": "Morito Chocolates is a Brooklyn-based, female-founded brand crafting cacao-driven confections with a focus on clarity, balance, and intention.",
         "content_2": "<p>We began with chocolate sticks — a simple, small-batch expression of vegan chocolate made with organic, gluten-free ingredients and a deliberately short ingredient list.</p><p>As Morito evolved, so did the format.</p><p>Today, our cups carry that same foundation forward, reimagined through layered textures and refined flavor pairings. Each piece is built from cacao outward — designed to feel light, creamy, and clean, while remaining deeply expressive.</p>"
       }
     },
     "origin-text-image": {
       "type": "origin-text-image",
       "blocks": {
+        "image_text_3fNeJY": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2026-02-07_at_8.19.08_AM.png",
+            "content": "<p>Cacao defines the structure, texture, and depth of everything we create. From there, we layer complementary ingredients — selected to highlight, never to overpower.</p><p>By working with a minimal number of ingredients, we allow cacao to come through with clarity, creating a balanced and intentional expression in every piece.</p><p>In a category often driven by sweetness and excess, we choose restraint — allowing each component to serve a purpose.</p>"
+          }
+        },
         "c5a6c078-3a6b-4137-92fb-a49f71c5bf0a": {
           "type": "image-text",
           "settings": {
             "image": "shopify://shop_images/pf-f01b72ca-765c-43ce-8625-4468b.png",
-            "content": "<p>At Morito Chocolates, we don't start with flavors — we start with cacao. Cacao forms the base of everything we create, shaping texture, structure, and depth from the very beginning. From there, we layer complementary ingredients — selected to highlight and contrast the cacao, not overpower it. We work with a minimal number of ingredients, keeping each component precise and intentional. By limiting what goes in, we allow cacao to come through more clearly, while creating a balanced expression. Our ingredients and cacao components come through a combination of direct relationships and trusted third-party partners — all selected with the same care and intention.</p>"
+            "content": ""
           }
         },
         "175f4b04-adb7-438e-9ba0-e5dd3ad6f0f5": {
@@ -37,11 +44,12 @@
         }
       },
       "block_order": [
+        "image_text_3fNeJY",
         "c5a6c078-3a6b-4137-92fb-a49f71c5bf0a",
         "175f4b04-adb7-438e-9ba0-e5dd3ad6f0f5"
       ],
       "settings": {
-        "text1": "We source our ingredients with intention."
+        "text1": "We don’t build chocolate around sugar or flavor trends — we build from cacao."
       }
     },
     "page-findus-newsletter": {
