@@ -59,6 +59,7 @@
         "slide-3-corporate": {
           "type": "slide",
           "settings": {
+            "hero_image_cdn_url": "",
             "hero_image_file": "Final Corporate Gifting .png",
             "heading": "Gifting Is a Statement.",
             "heading2": "Make It",
@@ -76,7 +77,7 @@
             "color_scheme": "accent-1",
             "text_alignment_mobile": "left"
           }
-        },
+        }
       },
       "block_order": [
         "slide-1-sticks",
@@ -145,8 +146,8 @@
       "settings": {
         "title": "Less ingredients. More intention.",
         "left_subtitle": "What you often find",
-        "left_count": "15+ ingredients",
-        "left_items": "Palm oil, High fructose corn syrup, PGPR (E476), Soy lecithin, Artificial vanillin, TBHQ preservative, Carrageenan, Corn syrup solids, Hydrogenated fats, Artificial colors",
+        "left_count": "8+ ingredients",
+        "left_items": "Palm oil, Dairy, Emulsifiers, Stabilizers, High fructose corn syrup, Invert sugar, Soy lecithin, Artificial Flavors, Artificial colors",
         "right_subtitle": "Morito Hazelnut",
         "right_count": "3 ingredients",
         "right_items": "Cacao, Organic hazelnuts, Organic cane sugar",
@@ -268,7 +269,7 @@
             "video_desktop_url": "https://cdn.shopify.com/videos/c/o/v/7e4c7289d7324d44bb5aa7fdc60f3281.mp4",
             "video_mobile_url": "https://cdn.shopify.com/videos/c/o/v/40408845101e432987f9a5ba03c60f94.mp4",
             "video_desktop": "morito-hero-desktop-4k.mp4",
-            "video_mobile":  "morito-hero-mobile-4k.mp4"
+            "video_mobile": "morito-hero-mobile-4k.mp4"
           }
         }
       },
