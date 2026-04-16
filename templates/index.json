@@ -144,14 +144,15 @@
     "clean-ingredients-1": {
       "type": "clean-ingredients",
       "settings": {
-        "title": "Less ingredients. More Flavor.",
-        "left_subtitle": "What you often find",
-        "left_count": "8+ ingredients",
-        "left_items": "Palm oil, Dairy, Emulsifiers, Stabilizers, High fructose corn syrup, Invert sugar, Soy lecithin, Artificial Flavors, Artificial colors",
-        "right_subtitle": "Morito Hazelnut",
-        "right_count": "4 ingredients",
-        "right_items": "Organic cacao, Organic cacao butter,Organic hazelnuts, Organic cane sugar",
-        "footer_text": ""
+        "headline_top": "Decadent flavors;",
+        "headline_bottom": "Simple ingredients",
+        "image_alt": "Morito chocolate stack",
+        "attr_1": "vegan",
+        "attr_2": "ZERO PRESERVATIVES",
+        "attr_3": "gluten free",
+        "attr_4": "soy free",
+        "attr_5": "NON GMO",
+        "attr_6": "palm oil free"
       }
     },
     "166056180431e93012": {
