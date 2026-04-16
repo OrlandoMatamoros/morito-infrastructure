@@ -1,259 +1,168 @@
 <style>
   .clean-ingredients {
-    background-color: rgba(249, 245, 240, 0.5);
-    padding: 100px 20px;
+    background-color: #FAF8F5;
+    padding: 90px 20px;
   }
 
   .clean-ingredients__container {
-    max-width: 1120px;
+    max-width: 1200px;
     margin: 0 auto;
-  }
-
-  .clean-ingredients__title {
-    font-family: 'Playfair Display', serif;
-    font-size: 4.5rem;
-    font-weight: 700;
-    color: #332520;
-    text-align: center;
-    margin-bottom: 70px;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
   }
 
   .clean-ingredients__columns {
     display: flex;
-    align-items: stretch;
-    justify-content: center;
-    gap: 36px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
   }
 
-  /* ── Card base ── */
-  .clean-ingredients__card {
+  /* ── Left text column ── */
+  .clean-ingredients__text {
     flex: 1;
-    max-width: 500px;
-    border-radius: 12px;
-    padding: 64px 54px;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    max-width: 560px;
   }
 
-  .clean-ingredients__card:hover {
-    transform: translateY(-4px);
-  }
-
-  /* ── Left card: clean white with subtle depth ── */
-  .clean-ingredients__card--left {
-    background-color: #FCFAEF;
-    border: 1px solid #E8E0D6;
-    box-shadow: 0 4px 20px rgba(51, 37, 32, 0.05);
-  }
-
-  .clean-ingredients__card--left:hover {
-    box-shadow: 0 12px 40px rgba(51, 37, 32, 0.1);
-  }
-
-  /* ── Right card: Warm Copper hero — physically larger, dominant ── */
-  .clean-ingredients__card--right {
-    background: linear-gradient(145deg, #D68A59 0%, #C47A4A 100%);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-    transform: scale(1.03);
-  }
-
-  .clean-ingredients__card--right:hover {
-    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.16);
-    transform: scale(1.03) translateY(-4px);
-  }
-
-  /* ── Subtitle ── */
-  .clean-ingredients__subtitle {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.45rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 18px;
-  }
-
-  .clean-ingredients__card--left .clean-ingredients__subtitle {
-    color: #332520;
-    opacity: 0.6;
-  }
-
-  .clean-ingredients__card--right .clean-ingredients__subtitle {
-    color: #F9F5F0;
-    opacity: 0.85;
-  }
-
-  /* ── Count ── */
-  .clean-ingredients__count {
+  .clean-ingredients__headline {
     font-family: 'Playfair Display', serif;
-    font-size: 5rem;
-    font-weight: 700;
+    color: #332520;
     line-height: 1.05;
-    margin-bottom: 32px;
-  }
-
-  .clean-ingredients__card--left .clean-ingredients__count {
-    color: #332520;
-  }
-
-  .clean-ingredients__card--right .clean-ingredients__count {
-    color: #F9F5F0;
-  }
-
-  /* ── List ── */
-  .clean-ingredients__list {
-    list-style: none;
-    padding: 0;
     margin: 0;
+    letter-spacing: -0.02em;
   }
 
-  .clean-ingredients__list li {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.3rem;
-    font-weight: 400;
-    letter-spacing: 0.02em;
-    padding: 11px 0;
-    position: relative;
-    padding-left: 26px;
-    border-bottom: 1px solid transparent;
-  }
-
-  .clean-ingredients__card--left .clean-ingredients__list li {
-    color: #332520;
-    border-bottom: 1px solid rgba(224, 216, 208, 0.6);
-  }
-
-  .clean-ingredients__card--left .clean-ingredients__list li:last-child {
-    border-bottom: none;
-  }
-
-  .clean-ingredients__card--right .clean-ingredients__list li {
-    color: #F9F5F0;
-    border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
-  }
-
-  .clean-ingredients__card--right .clean-ingredients__list li:last-child {
-    border-bottom: none;
-  }
-
-  /* ── Bullet dots ── */
-  .clean-ingredients__list li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-  }
-
-  .clean-ingredients__card--left .clean-ingredients__list li::before {
-    background-color: #D68A59;
-  }
-
-  .clean-ingredients__card--right .clean-ingredients__list li::before {
-    background-color: #F9F5F0;
-  }
-
-  /* ── Footer ── */
-  .clean-ingredients__footer {
-    text-align: center;
-    margin-top: 64px;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.9rem;
+  .clean-ingredients__headline-top {
+    display: block;
     font-style: italic;
+    font-weight: 500;
+    font-size: 3.2rem;
+  }
+
+  .clean-ingredients__headline-bottom {
+    display: block;
+    font-weight: 900;
+    font-size: 5.2rem;
+    margin-top: 6px;
+  }
+
+  /* ── Right image column ── */
+  .clean-ingredients__image {
+    flex: 1;
+    max-width: 560px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .clean-ingredients__image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* ── Bottom attributes row ── */
+  .clean-ingredients__attributes {
+    max-width: 1040px;
+    margin: 70px auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .clean-ingredients__attribute {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.05rem;
     color: #332520;
-    opacity: 0.7;
-    letter-spacing: 0.01em;
+    padding: 0 26px;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .clean-ingredients__attribute--upper {
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+  }
+
+  .clean-ingredients__divider {
+    flex: 0 0 60px;
+    border: none;
+    border-top: 2px dotted #D68A59;
+    margin: 0;
+    height: 0;
+  }
+
+  /* ═══════ Tablet ═══════ */
+  @media screen and (max-width: 989px) {
+    .clean-ingredients__headline-top { font-size: 2.6rem; }
+    .clean-ingredients__headline-bottom { font-size: 4rem; }
+    .clean-ingredients__columns { gap: 36px; }
   }
 
   /* ═══════ Mobile ═══════ */
   @media screen and (max-width: 749px) {
-    .clean-ingredients {
-      padding: 56px 16px;
-    }
-
-    .clean-ingredients__title {
-      font-size: 2.8rem;
-      margin-bottom: 40px;
-    }
+    .clean-ingredients { padding: 56px 18px; }
 
     .clean-ingredients__columns {
       flex-direction: column;
-      align-items: center;
-      gap: 24px;
+      gap: 32px;
     }
 
-    .clean-ingredients__card {
-      max-width: 100%;
-      padding: 40px 32px;
+    .clean-ingredients__text { text-align: center; }
+
+    .clean-ingredients__headline-top { font-size: 2.2rem; }
+    .clean-ingredients__headline-bottom { font-size: 3.2rem; }
+
+    .clean-ingredients__attributes {
+      margin-top: 44px;
+      gap: 10px 0;
     }
 
-    .clean-ingredients__card:hover {
-      transform: none;
+    .clean-ingredients__attribute {
+      font-size: 0.9rem;
+      padding: 0 14px;
     }
 
-    .clean-ingredients__card--right {
-      transform: none;
-    }
-
-    .clean-ingredients__card--right:hover {
-      transform: none;
-    }
-
-    .clean-ingredients__subtitle {
-      font-size: 1.1rem;
-    }
-
-    .clean-ingredients__count {
-      font-size: 3.2rem;
-      margin-bottom: 22px;
-    }
-
-    .clean-ingredients__list li {
-      font-size: 1.1rem;
-      padding: 9px 0 9px 22px;
-    }
-
-    .clean-ingredients__footer {
-      margin-top: 36px;
-      font-size: 1.4rem;
-    }
+    .clean-ingredients__divider { flex-basis: 28px; }
   }
 </style>
 
 <div class="clean-ingredients">
   <div class="clean-ingredients__container">
-    <h2 class="clean-ingredients__title">{{ section.settings.title | escape }}</h2>
-
     <div class="clean-ingredients__columns">
-      <!-- Left card: What you often find -->
-      <div class="clean-ingredients__card clean-ingredients__card--left">
-        <p class="clean-ingredients__subtitle">{{ section.settings.left_subtitle | escape }}</p>
-        <p class="clean-ingredients__count">{{ section.settings.left_count | escape }}</p>
-        <ul class="clean-ingredients__list">
-          {%- assign left_items = section.settings.left_items | split: ',' -%}
-          {%- for item in left_items -%}
-            <li>{{ item | strip | escape }}</li>
-          {%- endfor -%}
-        </ul>
+      <div class="clean-ingredients__text">
+        <h2 class="clean-ingredients__headline">
+          <span class="clean-ingredients__headline-top">{{ section.settings.headline_top | escape }}</span>
+          <span class="clean-ingredients__headline-bottom">{{ section.settings.headline_bottom | escape }}</span>
+        </h2>
       </div>
 
-      <!-- Right card: Morito Hazelnut (hero) -->
-      <div class="clean-ingredients__card clean-ingredients__card--right">
-        <p class="clean-ingredients__subtitle">{{ section.settings.right_subtitle | escape }}</p>
-        <p class="clean-ingredients__count">{{ section.settings.right_count | escape }}</p>
-        <ul class="clean-ingredients__list">
-          {%- assign right_items = section.settings.right_items | split: ',' -%}
-          {%- for item in right_items -%}
-            <li>{{ item | strip | escape }}</li>
-          {%- endfor -%}
-        </ul>
+      <div class="clean-ingredients__image">
+        {%- if section.settings.image_url != blank -%}
+          <img src="{{ section.settings.image_url }}" alt="{{ section.settings.image_alt | escape }}" loading="lazy">
+        {%- elsif section.settings.image != blank -%}
+          <img src="{{ section.settings.image | image_url: width: 1200 }}" alt="{{ section.settings.image.alt | default: section.settings.image_alt | escape }}" loading="lazy" width="{{ section.settings.image.width }}" height="{{ section.settings.image.height }}">
+        {%- else -%}
+          {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+        {%- endif -%}
       </div>
     </div>
 
-    <p class="clean-ingredients__footer">{{ section.settings.footer_text | escape }}</p>
+    <div class="clean-ingredients__attributes">
+      <span class="clean-ingredients__attribute">{{ section.settings.attr_1 | escape }}</span>
+      <hr class="clean-ingredients__divider">
+      <span class="clean-ingredients__attribute clean-ingredients__attribute--upper">{{ section.settings.attr_2 | escape }}</span>
+      <hr class="clean-ingredients__divider">
+      <span class="clean-ingredients__attribute">{{ section.settings.attr_3 | escape }}</span>
+      <hr class="clean-ingredients__divider">
+      <span class="clean-ingredients__attribute">{{ section.settings.attr_4 | escape }}</span>
+      <hr class="clean-ingredients__divider">
+      <span class="clean-ingredients__attribute clean-ingredients__attribute--upper">{{ section.settings.attr_5 | escape }}</span>
+      <hr class="clean-ingredients__divider">
+      <span class="clean-ingredients__attribute">{{ section.settings.attr_6 | escape }}</span>
+    </div>
   </div>
 </div>
 
@@ -265,52 +174,39 @@
   "settings": [
     {
       "type": "text",
-      "id": "title",
-      "label": "Section Title",
-      "default": "Less ingredients. More intention."
+      "id": "headline_top",
+      "label": "Headline (italic line)",
+      "default": "Decadent flavors;"
     },
     {
       "type": "text",
-      "id": "left_subtitle",
-      "label": "Left Column Subtitle",
-      "default": "What you often find"
+      "id": "headline_bottom",
+      "label": "Headline (bold line)",
+      "default": "Simple ingredients"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Product image"
     },
     {
       "type": "text",
-      "id": "left_count",
-      "label": "Left Column Count",
-      "default": "15+ ingredients"
-    },
-    {
-      "type": "textarea",
-      "id": "left_items",
-      "label": "Left Column Items (comma-separated)",
-      "default": "Palm oil, High fructose corn syrup, PGPR (E476), Soy lecithin, Artificial vanillin, TBHQ preservative, Carrageenan, Corn syrup solids, Hydrogenated fats, Artificial colors"
+      "id": "image_url",
+      "label": "Direct CDN image URL (overrides picker)"
     },
     {
       "type": "text",
-      "id": "right_subtitle",
-      "label": "Right Column Subtitle",
-      "default": "Morito Hazelnut"
+      "id": "image_alt",
+      "label": "Image alt text",
+      "default": "Morito chocolate"
     },
-    {
-      "type": "text",
-      "id": "right_count",
-      "label": "Right Column Count",
-      "default": "3 ingredients"
-    },
-    {
-      "type": "text",
-      "id": "right_items",
-      "label": "Right Column Items (comma-separated)",
-      "default": "Cacao, Organic hazelnuts, Organic cane sugar"
-    },
-    {
-      "type": "text",
-      "id": "footer_text",
-      "label": "Footer Text",
-      "default": "Nothing more. Nothing needed."
-    }
+    { "type": "header", "content": "Attributes row" },
+    { "type": "text", "id": "attr_1", "label": "Attribute 1", "default": "vegan" },
+    { "type": "text", "id": "attr_2", "label": "Attribute 2", "default": "ZERO PRESERVATIVES" },
+    { "type": "text", "id": "attr_3", "label": "Attribute 3", "default": "gluten free" },
+    { "type": "text", "id": "attr_4", "label": "Attribute 4", "default": "soy free" },
+    { "type": "text", "id": "attr_5", "label": "Attribute 5", "default": "NON GMO" },
+    { "type": "text", "id": "attr_6", "label": "Attribute 6", "default": "palm oil free" }
   ],
   "presets": [
     {
