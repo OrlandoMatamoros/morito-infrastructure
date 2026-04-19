@@ -9,6 +9,15 @@
 
 ### Changes Made
 
+#### Clean Ingredients Visual Adjustments
+- **File:** `sections/clean-ingredients.liquid`
+- **Changes:**
+  - Reduced chocolate stack image from 100% to 60% width (40% size reduction)
+  - Enlarged attribute badge text from 1.05rem to 1.45rem on desktop, 0.9rem to 1.15rem on mobile
+  - Increased attribute font weight to 600 (800 for uppercase items like ZERO PRESERVATIVES, NON GMO)
+  - Added slightly more spacing between badges (padding 26px → 30px)
+- **Rationale:** Better visual balance — smaller product image gives more breathing room, larger attribute text makes certifications more prominent and readable
+
 #### Pre-Launch Homepage Copy Fixes
 - **File:** `templates/index.json`
 - **Changes:**
