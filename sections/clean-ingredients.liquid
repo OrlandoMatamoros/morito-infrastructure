@@ -33,15 +33,22 @@
   .clean-ingredients__headline-top {
     display: block;
     font-style: italic;
-    font-weight: 500;
+    font-weight: 900;
     font-size: 3.2rem;
+  }
+
+  .clean-ingredients__headline-middle {
+    display: block;
+    font-weight: 900;
+    font-size: 5.2rem;
+    margin-top: 6px;
   }
 
   .clean-ingredients__headline-bottom {
     display: block;
     font-weight: 900;
     font-size: 5.2rem;
-    margin-top: 6px;
+    margin-top: 0;
   }
 
   /* ── Right image column ── */
@@ -100,6 +107,7 @@
   /* ═══════ Tablet ═══════ */
   @media screen and (max-width: 989px) {
     .clean-ingredients__headline-top { font-size: 2.6rem; }
+    .clean-ingredients__headline-middle { font-size: 4rem; }
     .clean-ingredients__headline-bottom { font-size: 4rem; }
     .clean-ingredients__columns { gap: 0; }
   }
@@ -116,6 +124,7 @@
     .clean-ingredients__text { text-align: center; }
 
     .clean-ingredients__headline-top { font-size: 2.2rem; }
+    .clean-ingredients__headline-middle { font-size: 3.2rem; }
     .clean-ingredients__headline-bottom { font-size: 3.2rem; }
 
     .clean-ingredients__attributes {
@@ -138,6 +147,7 @@
       <div class="clean-ingredients__text">
         <h2 class="clean-ingredients__headline">
           <span class="clean-ingredients__headline-top">{{ section.settings.headline_top | escape }}</span>
+          <span class="clean-ingredients__headline-middle">{{ section.settings.headline_middle | escape }}</span>
           <span class="clean-ingredients__headline-bottom">{{ section.settings.headline_bottom | escape }}</span>
         </h2>
       </div>
@@ -183,9 +193,15 @@
     },
     {
       "type": "text",
+      "id": "headline_middle",
+      "label": "Headline (bold line 1)",
+      "default": "Simple"
+    },
+    {
+      "type": "text",
       "id": "headline_bottom",
-      "label": "Headline (bold line)",
-      "default": "Simple ingredients"
+      "label": "Headline (bold line 2)",
+      "default": "ingredients"
     },
     {
       "type": "image_picker",

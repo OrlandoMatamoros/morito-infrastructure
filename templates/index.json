@@ -145,7 +145,8 @@
       "type": "clean-ingredients",
       "settings": {
         "headline_top": "Decadent flavors;",
-        "headline_bottom": "Simple ingredients",
+        "headline_middle": "Simple",
+        "headline_bottom": "ingredients",
         "image": "shopify://shop_images/MORITOsticks_noback_1.png",
         "image_url": "",
         "image_alt": "Morito chocolate stack",
