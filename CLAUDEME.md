@@ -9,6 +9,15 @@
 
 ### Changes Made
 
+#### Clean Ingredients Headline Restructure
+- **Files:** `sections/clean-ingredients.liquid`, `templates/index.json`
+- **Changes:**
+  - "Decadent flavors;" now displays in **bold italic** (font-weight 900, was 500)
+  - "Simple ingredients" split into two separate lines: "Simple" + "ingredients"
+  - Added new `headline_middle` setting to schema and index.json
+  - Responsive sizes added for middle line at tablet (4rem) and mobile (3.2rem)
+- **Rationale:** Three-line headline creates stronger visual hierarchy and dramatic impact
+
 #### Clean Ingredients Visual Adjustments (3 passes)
 - **File:** `sections/clean-ingredients.liquid`
 - **Changes:**
