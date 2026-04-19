@@ -9,14 +9,14 @@
 
 ### Changes Made
 
-#### Clean Ingredients Visual Adjustments (2 passes)
+#### Clean Ingredients Visual Adjustments (3 passes)
 - **File:** `sections/clean-ingredients.liquid`
 - **Changes:**
   - Reduced chocolate stack image from 100% to 60% width (40% size reduction)
-  - Closed large gap between headline text and image: column gap 60px → 20px, centered layout
-  - Enlarged attribute badge text to 1.7rem desktop, 1.3rem mobile (from original 1.05rem/0.9rem)
+  - Eliminated gap between headline text and image: column gap 60px → 0, centered layout
+  - Enlarged attribute badge text to 2rem desktop, 1.5rem mobile (from original 1.05rem/0.9rem)
   - Increased attribute font weight to 600 (800 for uppercase items like ZERO PRESERVATIVES, NON GMO)
-  - Tablet gap reduced to 16px, mobile gap to 12px for tighter visual grouping
+  - All gaps set to 0 across desktop, tablet, and mobile for tightest visual grouping
 - **Rationale:** Headline and image felt too far apart. Attribute badges needed to be more prominent and readable at a glance
 
 #### Pre-Launch Homepage Copy Fixes
