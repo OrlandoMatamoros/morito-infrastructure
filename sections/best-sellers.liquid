@@ -385,7 +385,10 @@
               <button type="submit" class="best-sellers__add-btn">Add to Cart</button>
             </form>
           {%- else -%}
-            <h3 class="best-sellers__product-title">{{ block.settings.image_file | remove: '.jpeg' | remove: '.jpg' | remove: '.png' }}</h3>
+            <h3 class="best-sellers__product-title">{{ block.settings.custom_title | default: block.settings.image_file | remove: '.jpeg' | remove: '.jpg' | remove: '.png' }}</h3>
+            {%- if block.settings.custom_price != blank -%}
+              <p class="best-sellers__price">{{ block.settings.custom_price }}</p>
+            {%- endif -%}
             <a href="/collections/all-products" class="best-sellers__add-btn best-sellers__add-btn--visible">Shop Now</a>
           {%- endif -%}
         </div>
@@ -535,6 +538,18 @@
           "id": "image_url",
           "label": "Direct CDN Image URL",
           "info": "Full Shopify CDN URL. Overrides HD Image filename if provided."
+        },
+        {
+          "type": "text",
+          "id": "custom_title",
+          "label": "Custom title (fallback)",
+          "info": "Used when product handle is not linked"
+        },
+        {
+          "type": "text",
+          "id": "custom_price",
+          "label": "Custom price (fallback)",
+          "info": "e.g. $12.00 — used when product handle is not linked"
         }
       ]
     }
