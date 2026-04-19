@@ -1162,10 +1162,14 @@ img.img-circle.img-responsive {
 }
 
 .text-first {
-  font-size: clamp(2.2rem, 3.2vw, 3.6rem);
-  line-height: 1.1;
-  max-width: 44rem;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 2.2vw, 2.2rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.45;
+  max-width: 36rem;
   display: inline-block;
+  color: #332520;
 }
 
 span.content-main {
@@ -1798,7 +1802,7 @@ p.text-comp__icon {
   }
 
   .text-first {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
 
   .home_newslatter_input {
