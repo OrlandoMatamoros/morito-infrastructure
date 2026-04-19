@@ -31,6 +31,8 @@ All 5 optimization pillars executed: corporate marquee logos, clean ingredients 
 
 **Latest (2026-04-16):** Responsive typography overhaul across homepage — fluid font sizes that scale smoothly on any screen. Best Sellers section polished with larger titles, optimized image loading, and reduced-motion accessibility. Clean Ingredients fully redesigned from dual-card comparison to streamlined headline + product image layout with brand attribute badges (vegan, gluten free, non-GMO, etc.). Slideshow Ken Burns animation synced to configurable speed setting with subtler zoom. Homepage about section typography unified.
 
+**Latest (2026-04-19):** Pre-launch homepage copy review — corrected spelling and grammar errors across Mission, Carbon Free Shipping, Ethically Sourced, Environmentally Friendly, and Customer Reviews sections.
+
 ---
 
 ### ⚠️ Security Protocol

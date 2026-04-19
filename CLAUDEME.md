@@ -5,6 +5,24 @@
 
 ---
 
+## Session: 2026-04-19
+
+### Changes Made
+
+#### Pre-Launch Homepage Copy Fixes
+- **File:** `templates/index.json`
+- **Changes:**
+  - Fixed "Our Mision" → "Our Mission" (missing 's')
+  - Fixed "honored it" → "honor it" and removed excessive spacing in Mission text
+  - Fixed "enviornment impract" → "environmental impact" in Carbon Free Shipping description
+  - Fixed "neutral-offset" → "Neutral to offset" and semicolon → comma in Carbon Free Shipping
+  - Fixed "Ethically and sustainable  sourced" → "Ethically and sustainably sourced" (grammar + double space)
+  - Fixed double space in Environmentally Friendly packaging text
+  - Fixed "Customers reviews" → "Customer Reviews" (grammar)
+- **Rationale:** Pre-launch quality pass — all customer-facing text reviewed and corrected for spelling, grammar, and punctuation
+
+---
+
 ## Session: 2026-03-07
 
 ### Changes Made
