@@ -1,3 +1,4 @@
+
 # 🍫 Morito Chocolates: Digital Infrastructure V1
 
 **Managed by:** Impulsa Lab  
@@ -32,6 +33,8 @@ All 5 optimization pillars executed: corporate marquee logos, clean ingredients 
 **Latest (2026-04-16):** Responsive typography overhaul across homepage — fluid font sizes that scale smoothly on any screen. Best Sellers section polished with larger titles, optimized image loading, and reduced-motion accessibility. Clean Ingredients fully redesigned from dual-card comparison to streamlined headline + product image layout with brand attribute badges (vegan, gluten free, non-GMO, etc.). Slideshow Ken Burns animation synced to configurable speed setting with subtler zoom. Homepage about section typography unified.
 
 **Latest (2026-04-19):** Pre-launch homepage copy review — corrected spelling and grammar errors across Mission, Carbon Free Shipping, Ethically Sourced, Environmentally Friendly, and Customer Reviews sections. Clean Ingredients visual refinement — chocolate stack image reduced 40%, headline and image brought closer together, attribute badge text enlarged to 1.7rem for better readability.
+
+**Latest (2026-04-20):** Menu reorganization — new order: SHOP, ABOUT US, SPECIAL EVENTS, WHOLESALE, CONTACT, FIND US. Corporate Gifting removed as separate menu item (merged into Special Events page). Special Events displayed in all caps. Find Us moved to last position. Changes applied across mobile drawer, desktop dropdown, and mega menu.
 
 ---
 
