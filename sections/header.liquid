@@ -139,6 +139,8 @@
                 <nav class="menu-drawer__navigation">
                   <ul class="menu-drawer__menu has-submenu list-menu" role="list">
                     {%- for link in section.settings.menu.links -%}
+                      {%- assign link_title_down = link.title | downcase -%}
+                      {%- unless link_title_down == 'find us' or link_title_down == 'corporate gifting' or link_title_down == 'special events' -%}
                       <li>
                         {%- if link.links != blank -%}
                           <details id="Details-menu-drawer-menu-item-{{ forloop.index }}">
@@ -196,13 +198,23 @@
                           </a>
                         {%- endif -%}
                       </li>
+                      {%- endunless -%}
                     {%- endfor -%}
-                    <!-- Special Events - Mobile Menu -->
                     <li>
                       <a href="/pages/special-events" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">
-                        Special Events
+                        SPECIAL EVENTS
                       </a>
                     </li>
+                    {%- for link in section.settings.menu.links -%}
+                      {%- assign link_title_down = link.title | downcase -%}
+                      {%- if link_title_down == 'find us' -%}
+                      <li>
+                        <a href="{{ link.url }}" class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.current %} menu-drawer__menu-item--active{% endif %}"{% if link.current %} aria-current="page"{% endif %}>
+                          {{ link.title | escape }}
+                        </a>
+                      </li>
+                      {%- endif -%}
+                    {%- endfor -%}
                   </ul>
                 </nav>
                 <div class="menu-drawer__utility-links">
@@ -402,6 +414,8 @@
         <nav class="header__inline-menu">
           <ul class="list-menu list-menu--inline" role="list">
             {%- for link in section.settings.menu.links -%}
+              {%- assign link_title_down = link.title | downcase -%}
+              {%- unless link_title_down == 'find us' or link_title_down == 'corporate gifting' or link_title_down == 'special events' -%}
               <li>
                 {%- if link.links != blank -%}
                   <header-menu>
@@ -445,19 +459,31 @@
                   </a>
                 {%- endif -%}
               </li>
+              {%- endunless -%}
             {%- endfor -%}
-            <!-- Special Events - Direct Link -->
             <li>
               <a href="/pages/special-events" class="header__menu-item list-menu__item link link--text focus-inset special-events-link">
-                <span>Special Events</span>
+                <span>SPECIAL EVENTS</span>
               </a>
             </li>
+            {%- for link in section.settings.menu.links -%}
+              {%- assign link_title_down = link.title | downcase -%}
+              {%- if link_title_down == 'find us' -%}
+              <li>
+                <a href="{{ link.url }}" class="header__menu-item header__menu-item list-menu__item link link--text focus-inset"{% if link.current %} aria-current="page"{% endif %}>
+                  <span {%- if link.current %} class="header__active-menu-item"{% endif %}>{{ link.title | escape }}</span>
+                </a>
+              </li>
+              {%- endif -%}
+            {%- endfor -%}
           </ul>
         </nav>
       {%- else -%}
         <nav class="header__inline-menu">
           <ul class="list-menu list-menu--inline" role="list">
             {%- for link in section.settings.menu.links -%}
+              {%- assign link_title_down = link.title | downcase -%}
+              {%- unless link_title_down == 'find us' or link_title_down == 'corporate gifting' or link_title_down == 'special events' -%}
               <li>
                 {%- if link.links != blank -%}
                   <header-menu>
@@ -496,13 +522,23 @@
                   </a>
                 {%- endif -%}
               </li>
+              {%- endunless -%}
             {%- endfor -%}
-            <!-- Special Events - Direct Link -->
             <li>
               <a href="/pages/special-events" class="header__menu-item list-menu__item link link--text focus-inset special-events-link">
-                <span>Special Events</span>
+                <span>SPECIAL EVENTS</span>
               </a>
             </li>
+            {%- for link in section.settings.menu.links -%}
+              {%- assign link_title_down = link.title | downcase -%}
+              {%- if link_title_down == 'find us' -%}
+              <li>
+                <a href="{{ link.url }}" class="header__menu-item header__menu-item list-menu__item link link--text focus-inset"{% if link.current %} aria-current="page"{% endif %}>
+                  <span {%- if link.current %} class="header__active-menu-item"{% endif %}>{{ link.title | escape }}</span>
+                </a>
+              </li>
+              {%- endif -%}
+            {%- endfor -%}
           </ul>
         </nav>
       {%- endif -%}
