@@ -612,6 +612,7 @@ class SlideshowComponent extends SliderComponent {
     if (!this.sliderControlWrapper) return;
 
     this.sliderFirstItemNode = this.slider.querySelector('.slideshow__slide');
+    if (this.sliderFirstItemNode) this.sliderFirstItemNode.classList.add('slide-active');
     if (this.sliderItemsToShow.length > 0) this.currentPage = 1;
 
     this.sliderControlLinksArray = Array.from(this.sliderControlWrapper.querySelectorAll('.slider-counter__link'));
@@ -724,10 +725,17 @@ class SlideshowComponent extends SliderComponent {
         if (button) button.removeAttribute('tabindex');
         item.setAttribute('aria-hidden', 'false');
         item.removeAttribute('tabindex');
+
+        if (!item.classList.contains('slide-active')) {
+          item.classList.remove('slide-active');
+          void item.offsetWidth;
+          item.classList.add('slide-active');
+        }
       } else {
         if (button) button.setAttribute('tabindex', '-1');
         item.setAttribute('aria-hidden', 'true');
         item.setAttribute('tabindex', '-1');
+        item.classList.remove('slide-active');
       }
     });
   }
