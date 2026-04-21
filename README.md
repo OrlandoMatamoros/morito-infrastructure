@@ -36,6 +36,8 @@ All 5 optimization pillars executed: corporate marquee logos, clean ingredients 
 
 **Latest (2026-04-20):** Menu reorganization — final order: SHOP, ABOUT US, WHOLESALE, SPECIAL EVENTS, CONTACT, FIND US. Corporate Gifting removed as separate menu item (merged into Special Events page). Special Events displayed in all caps. Find Us moved to last position. Changes applied across mobile drawer, desktop dropdown, and mega menu. Wholesale page rebuilt — removed old Mable/MeetMable marketplace iframes and legacy card layout; replaced with single Faire.com embed widget (900×600). Cleaned up all unused wholesale CSS and section settings.
 
+**Latest (2026-04-21):** Added Faire Top Shop Spring 2026 badge to wholesale page — displayed centered between intro text and Faire embed widget with supporting credibility text.
+
 ---
 
 ### ⚠️ Security Protocol
