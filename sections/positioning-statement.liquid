@@ -1,68 +1,56 @@
 <style>
   .positioning-statement {
     background: #F5EFEA;
-    border-top: 1px solid rgba(193, 119, 82, 0.12);
-    border-bottom: 1px solid rgba(193, 119, 82, 0.12);
     text-align: center;
-    padding: 100px 20px 90px;
+    padding: 120px 20px 140px;
   }
 
   .positioning-statement__ornament {
     display: block;
-    width: 36px;
+    width: 60px;
     height: 1px;
-    background-color: #C8A68E;
+    background-color: #CFC5BF;
     border: none;
-    margin: 0 auto 32px;
-    opacity: 0.5;
+    margin: 0 auto 40px;
   }
 
   .positioning-statement__headline {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(2.1rem, 4.2vw, 3.4rem);
-    font-weight: 600;
+    font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+    font-weight: 700;
     font-style: italic;
-    color: #3B2820;
+    color: #2E221C;
     margin: 0 auto;
-    max-width: 820px;
-    letter-spacing: 0.015em;
-    line-height: 1.4;
+    max-width: 840px;
+    letter-spacing: 0.01em;
+    line-height: 1.35;
   }
 
   .positioning-statement__subline-text {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+    font-size: clamp(1.7rem, 3.4vw, 2.6rem);
     font-weight: 300;
     font-style: italic;
     color: #6B5349;
-    margin: 12px auto 0;
-    max-width: 820px;
+    margin: 14px auto 0;
+    max-width: 840px;
     letter-spacing: 0.015em;
     line-height: 1.45;
   }
 
-  .positioning-statement__divider {
-    width: 36px;
-    height: 1px;
-    background-color: #C8A68E;
-    border: none;
-    margin: 32px auto 0;
-    opacity: 0.5;
-  }
-
   @media screen and (max-width: 749px) {
     .positioning-statement {
-      padding: 70px 28px 60px;
+      padding: 80px 28px 100px;
     }
 
     .positioning-statement__headline {
-      font-size: 1.65rem;
-      line-height: 1.45;
+      font-size: 1.85rem;
+      line-height: 1.4;
     }
 
     .positioning-statement__subline-text {
-      font-size: 1.25rem;
-      margin-top: 8px;
+      font-size: 1.35rem;
+      margin-top: 10px;
     }
   }
 </style>
@@ -73,7 +61,6 @@
   {%- if section.settings.subline != blank -%}
     <p class="positioning-statement__subline-text">{{ section.settings.subline | escape }}</p>
   {%- endif -%}
-  <hr class="positioning-statement__divider">
 </section>
 
 {% schema %}
