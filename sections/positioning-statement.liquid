@@ -1,35 +1,46 @@
 <style>
   .positioning-statement {
-    background-color: #FAF8F5;
+    background: linear-gradient(180deg, #3D2E28 0%, #4A3830 100%);
     text-align: center;
-    padding: 80px 20px 70px;
+    padding: 90px 20px 80px;
+  }
+
+  .positioning-statement__ornament {
+    display: block;
+    width: 30px;
+    height: 1px;
+    background-color: #D68A59;
+    border: none;
+    margin: 0 auto 28px;
+    opacity: 0.7;
   }
 
   .positioning-statement__headline {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(1.8rem, 3.5vw, 3rem);
-    font-weight: 700;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 400;
     font-style: italic;
-    color: #332520;
+    color: #F2EDE8;
     margin: 0 auto;
-    max-width: 850px;
-    letter-spacing: 0.01em;
-    line-height: 1.3;
+    max-width: 780px;
+    letter-spacing: 0.02em;
+    line-height: 1.45;
   }
 
   .positioning-statement__divider {
-    width: 50px;
+    width: 40px;
     height: 1px;
     background-color: #D68A59;
     border: none;
-    margin: 20px auto;
+    margin: 28px auto 0;
+    opacity: 0.7;
   }
 
   .positioning-statement__subline {
     font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
     font-weight: 400;
-    color: #332520;
+    color: #F2EDE8;
     opacity: 0.5;
     margin: 0;
     letter-spacing: 0.2em;
@@ -38,11 +49,12 @@
 
   @media screen and (max-width: 749px) {
     .positioning-statement {
-      padding: 60px 18px 50px;
+      padding: 65px 24px 55px;
     }
 
     .positioning-statement__headline {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
+      line-height: 1.5;
     }
 
     .positioning-statement__subline {
@@ -52,6 +64,7 @@
 </style>
 
 <section class="positioning-statement">
+  <span class="positioning-statement__ornament" aria-hidden="true"></span>
   <h2 class="positioning-statement__headline">{{ section.settings.headline | escape }}</h2>
   <hr class="positioning-statement__divider">
   {%- if section.settings.subline != blank -%}
