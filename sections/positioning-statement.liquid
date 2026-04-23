@@ -38,6 +38,16 @@
     line-height: 1.45;
   }
 
+  .positioning-statement__diamond {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: #C8652A;
+    border: none;
+    margin: 28px auto 0;
+    transform: rotate(45deg);
+  }
+
   @media screen and (max-width: 749px) {
     .positioning-statement {
       padding: 28px 28px 34px;
@@ -61,6 +71,7 @@
   {%- if section.settings.subline != blank -%}
     <p class="positioning-statement__subline-text">{{ section.settings.subline | escape }}</p>
   {%- endif -%}
+  <span class="positioning-statement__diamond" aria-hidden="true"></span>
 </section>
 
 {% schema %}
